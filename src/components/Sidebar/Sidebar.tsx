@@ -19,25 +19,25 @@ const Sidebar: FC<SidebarProps> = (props) => {
 	return (
 		<SidebarContainer isOpen={isOpen} onClick={toggleSideBar}>
 			<Icon onClick={toggleSideBar}>
-				<CloseIcon />
+				<CloseIcon onClick={toggleSideBar} />
 			</Icon>
 
 			<SidebarWrapper>
 				<SidebarMenu>
 					<SidebarLink to="about" onClick={toggleSideBar}>
-						About
+						Ceremony
 					</SidebarLink>
 
 					<SidebarLink to="discover" onClick={toggleSideBar}>
-						Discover
+						Story
 					</SidebarLink>
 
 					<SidebarLink to="services" onClick={toggleSideBar}>
-						Services
+						Photos
 					</SidebarLink>
 
 					<SidebarLink to="signup" onClick={toggleSideBar}>
-						Sign Up
+						Contact
 					</SidebarLink>
 				</SidebarMenu>
 
