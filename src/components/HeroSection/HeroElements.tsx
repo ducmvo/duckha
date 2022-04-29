@@ -19,10 +19,10 @@ export const HeroContainer = styled.div`
 		inset: 0;
 		background: linear-gradient(
 				180deg,
-				rgba(255, 255, 255, 0.1) 0%,
-				rgba(255, 255, 255, 0.9) 100%
+				rgba(245, 240, 236, 0.1) 0%,
+				rgba(245, 240, 236, 1) 100%
 			),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+			linear-gradient(180deg, rgba(245, 240, 236, 0.3) 0%, transparent 100%);
 		z-index: 2;
 	}
 `
