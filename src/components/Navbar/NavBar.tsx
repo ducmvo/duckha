@@ -13,6 +13,7 @@ import {
 	NavMenu
 } from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll'
+import { theme } from '@styles/theme'
 
 type NavbarProps = {
 	toggleSideBar: () => void
@@ -24,6 +25,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 	const changeNav = () => setScrollNav(window.scrollY >= 80 ? true : false)
 
 	const toggleHome = () => scroll.scrollToTop()
+
 	useEffect(() => {
 		window.addEventListener('scroll', changeNav)
 	}, [])
@@ -36,7 +38,9 @@ const Navbar: FC<NavbarProps> = (props) => {
 				</NavLogo>
 
 				<MobileIcon onClick={toggleSideBar}>
-					<FaBars />
+					<FaBars
+						color={scrollNav ? theme.colors.bg : theme.colors.text}
+					/>
 				</MobileIcon>
 
 				<NavMenu scrollNav={scrollNav}>
@@ -84,7 +88,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 							spy={true}
 							offset={-80}
 						>
-							LOCATION
+							CONTACT
 						</NavLinks>
 					</NavItem>
 				</NavMenu>
