@@ -16,7 +16,7 @@ const RSVP = () => {
 	return (
 		<Container>
 			<FormWrap>
-				<Icon href="/">D&K</Icon>
+				<Icon href="/">Duc & Kha</Icon>
 				<FormContent>
 					<Form action="#">
 						<FormH1>RSVP</FormH1>

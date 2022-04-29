@@ -32,7 +32,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 		<Nav scrollNav={scrollNav}>
 			<NavbarContainer>
 				<NavLogo href="/" onClick={toggleHome}>
-					D&K
+					Duc & Kha
 				</NavLogo>
 
 				<MobileIcon onClick={toggleSideBar}>

@@ -30,11 +30,9 @@ const StyledIcon = styled.a`
 	color: #fff;
 	font-weight: bold;
 	font-size: 32px;
-
-	@media screen and (max-width: 480px) {
-		margin-left: 16px;
-		margin-top: 8px;
-	}
+	font-family: 'Amelaryas';
+	margin-left: 16px;
+	margin-top: 8px;
 `
 
 export const Icon: FC<LinkProps> = (props) => {

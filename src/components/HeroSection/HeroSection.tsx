@@ -11,7 +11,11 @@ import {
 	HeroBtnWrapper,
 	HeroContent,
 	HeroP,
-	HeroH1
+	HeroH1,
+	Duc,
+	Kha,
+	HeroName,
+	CountDown
 } from './HeroElements'
 
 const HeroSection = () => {
@@ -29,13 +33,14 @@ const HeroSection = () => {
 				/> */}
 				<ImageBg src="/assets/images/4.jpg" layout="fill" />
 			</HeroBg>
-			{/* <HeroContent>
-				<HeroH1>Virtual Banking Made Easy</HeroH1>
-				<HeroP>
-					Sign up for a new account today and receive $500 in credit
-					towards your next payments.
-				</HeroP>
-				<HeroBtnWrapper>
+
+			<HeroContent>
+				<HeroName>
+					<Duc>Duc</Duc>
+					<Kha>Kha</Kha>
+				</HeroName>
+
+				{/* <HeroBtnWrapper>
 					<Button
 						to="signup"
 						onMouseEnter={setHover}
@@ -49,8 +54,9 @@ const HeroSection = () => {
 					>
 						Get started {hover ? <ArrowForward /> : <ArrowRight />}
 					</Button>
-				</HeroBtnWrapper>
-			</HeroContent> */}
+				</HeroBtnWrapper> */}
+				<CountDown>118 Days | 2 Hours | 34 Minutes | 56 Seconds</CountDown>
+			</HeroContent>
 		</HeroContainer>
 	)
 }

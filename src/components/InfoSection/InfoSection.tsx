@@ -58,7 +58,7 @@ const Info: FC<InfoProps> = (props) => {
 								<TopLine>{topLine}</TopLine>
 								<Heading lightText={lightText}>{headline}</Heading>
 								<Subtitle darkText={darkText}>{description}</Subtitle>
-								<BtnWrap>
+								{/* <BtnWrap>
 									<Button
 										to="home"
 										smooth={true}
@@ -72,7 +72,7 @@ const Info: FC<InfoProps> = (props) => {
 									>
 										{buttonLabel}
 									</Button>
-								</BtnWrap>
+								</BtnWrap> */}
 							</TextWrapper>
 						</Column1>
 						<Column2>

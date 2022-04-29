@@ -40,13 +40,14 @@ export const StyledNavLogo = styled.a`
 	color: ${({ theme }) => theme.colors.primary || '#000'};
 	justify-self: flex-start;
 	cursor: pointer;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	font-family: 'Amelaryas';
 	display: flex;
 	align-items: center;
 	margin-left: 24px;
 	font-weight: bold;
 	text-decoration: none;
+	text-transform: uppercase;
 `
 
 export const NavLogo: FC<LinkProps> = (props) => {

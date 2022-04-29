@@ -15,28 +15,60 @@ import {
 const Services = () => {
 	return (
 		<ServicesContainer id="services">
-			<ServicesH1>Our services</ServicesH1>
+			<ServicesH1>Photo Library</ServicesH1>
 			<ServicesWrapper>
 				<ServicesCard>
 					<ServicesIcon src={Icon1} height="160px" width="160px" />
-					<ServicesH2>Reduce expenses</ServicesH2>
+					<ServicesH2>2014</ServicesH2>
+					<ServicesP>We first met</ServicesP>
+				</ServicesCard>
+				<ServicesCard>
+					<ServicesIcon src={Icon2} height="160px" width="160px" />
+					<ServicesH2>2015</ServicesH2>
+					<ServicesP>Graduation and long distance</ServicesP>
+				</ServicesCard>
+				<ServicesCard>
+					<ServicesIcon src={Icon3} height="160px" width="160px" />
+					<ServicesH2>2016</ServicesH2>
+					<ServicesP>Seattle! Getting engaged</ServicesP>
+				</ServicesCard>
+				<ServicesCard>
+					<ServicesIcon src={Icon1} height="160px" width="160px" />
+					<ServicesH2>2017</ServicesH2>
 					<ServicesP>
-						We help your fess and increase your overall revenue.
+						{"Kha's"} graduation and a lots of road trips
 					</ServicesP>
 				</ServicesCard>
 				<ServicesCard>
 					<ServicesIcon src={Icon2} height="160px" width="160px" />
-					<ServicesH2>Virtual Offices</ServicesH2>
+					<ServicesH2>2018</ServicesH2>
 					<ServicesP>
-						you can acess our plataform online anywhere in the world.
+						Moved in to new apartment. Trip to Zion National Park
 					</ServicesP>
 				</ServicesCard>
 				<ServicesCard>
 					<ServicesIcon src={Icon3} height="160px" width="160px" />
-					<ServicesH2>Reduce expenses</ServicesH2>
+					<ServicesH2>2019</ServicesH2>
 					<ServicesP>
-						Unlock our special membership card that returns 5% cash back.
+						Coffee lovers. Trip to Yellowstone National Park
 					</ServicesP>
+				</ServicesCard>
+				<ServicesCard>
+					<ServicesIcon src={Icon3} height="160px" width="160px" />
+					<ServicesH2>2020</ServicesH2>
+					<ServicesP>We found May! Getting into snowboarding</ServicesP>
+				</ServicesCard>
+				<ServicesCard>
+					<ServicesIcon src={Icon3} height="160px" width="160px" />
+					<ServicesH2>2021</ServicesH2>
+					<ServicesP>
+						Kha was officially a dentist! Trip to Bahamas.
+					</ServicesP>
+				</ServicesCard>
+				<ServicesCard>
+					<ServicesIcon src={Icon3} height="160px" width="160px" />
+					<ServicesH2>2022</ServicesH2>
+					<ServicesP>MSCS admission. Upcoming trip to Vietnam</ServicesP>
 				</ServicesCard>
 			</ServicesWrapper>
 		</ServicesContainer>

@@ -4,7 +4,7 @@ import { MdArrowForward, MdKeyboardArrowRight } from 'react-icons/md'
 import Image from 'next/image'
 
 export const HeroContainer = styled.div`
-	background: #0c0c0c;
+	background: ${({ theme }) => theme.colors.bg};
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -17,8 +17,12 @@ export const HeroContainer = styled.div`
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), 
-					linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%)
+		background: linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0.1) 0%,
+				rgba(255, 255, 255, 0.9) 100%
+			),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
 		z-index: 2;
 	}
 `
@@ -72,12 +76,55 @@ export const HeroContent = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+`
+
+export const HeroName = styled.div`
+	color: ${({ theme }) => theme.colors.text};
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 2rem;
+`
+
+export const Duc = styled.div`
+	position: absolute;
+	transform: translate(-4rem, -2rem);
+	font-family: 'DiamondFlowers';
+
+	@media screen and (max-width: 768px) {
+		font-size: 1.5rem;
+		transform: translate(-4rem, -3rem);
+	}
+	@media screen and (max-width: 480px) {
+		font-size: 1rem;
+		transform: translate(-1.5rem, -1.5rem);
+	}
+`
+
+export const Kha = styled.div`
+	position: absolute;
+	transform: translate(3rem, 2rem);
+	font-family: 'DiamondFlowers';
+
+	@media screen and (max-width: 768px) {
+		font-size: 1.5rem;
+		transform: translate(1rem, 1rem);
+	}
+	@media screen and (max-width: 480px) {
+		font-size: 1rem;
+		transform: translate(1.5rem, 1.5rem);
+	}
 `
 
 export const HeroH1 = styled.h1`
 	color: white;
 	font-size: 48px;
 	text-align: center;
+	font-family: 'DiamondFlowers';
+	padding-top: 100px;
 
 	@media screen and (max-width: 768px) {
 		font-size: 40px;
@@ -93,13 +140,24 @@ export const HeroP = styled.p`
 	font-size: 24px;
 	text-align: center;
 	max-width: 600px;
+	text-transform: uppercase;
+	color: black;
+	position: absolute;
+	/* background: salmon; */
+	bottom: 100px;
+`
 
-	@media screen and (max-width: 768px) {
-		font-size: 24px;
-	}
-	@media screen and (max-width: 480px) {
-		font-size: 18px;
-	}
+export const CountDown = styled.div`
+	margin-top: 24px;
+	color: white;
+	font-size: 24px;
+	text-align: center;
+	max-width: 600px;
+	text-transform: uppercase;
+	color: black;
+	position: absolute;
+	/* background: salmon; */
+	bottom: 100px;
 `
 
 export const HeroBtnWrapper = styled.div`

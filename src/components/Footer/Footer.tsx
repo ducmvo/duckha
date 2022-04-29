@@ -31,7 +31,7 @@ const Footer = () => {
 	return (
 		<FooterContainer>
 			<FooterWrap>
-				<FooterLinkContainer>
+				{/* <FooterLinkContainer>
 					<FooterLinkWrapper>
 						<FooterLinkItems>
 							<FooterLinkTitle>About us</FooterLinkTitle>
@@ -66,50 +66,36 @@ const Footer = () => {
 							<FooterLink href="/">Twitter</FooterLink>
 						</FooterLinkItems>
 					</FooterLinkWrapper>
-				</FooterLinkContainer>
+				</FooterLinkContainer> */}
 				<SocialMedia>
 					<SocialMediaWrap>
 						<SocialLogo href="/" onClick={toggleHome}>
-							D&K
+							Duc & Kha
 						</SocialLogo>
-						<WebsiteRights>
+						{/* <WebsiteRights>
 							D&K © {new Date().getFullYear()} All rights reserved.
-						</WebsiteRights>
+						</WebsiteRights> */}
 						<SocialIcons>
 							<SocialIconLink
-								href="/"
+								href="//www.facebook/duckha2022"
 								target="_blank"
 								arial-label="Facebook"
 							>
 								<FaFacebook />
 							</SocialIconLink>
 							<SocialIconLink
-								href="//www.instagram.com/leonardtcomdt/"
+								href="//www.instagram.com/duckha2022/"
 								target="_blank"
 								arial-label="Instagram"
 							>
 								<FaInstagram />
 							</SocialIconLink>
 							<SocialIconLink
-								href="//www.youtube.com/channel/UCF6Cz50AqAJcg6JC5LDRElg/videos?view_as=subscriber"
+								href="//www.youtube.com/channel/duckha2022"
 								target="_blank"
 								arial-label="Youtube"
 							>
 								<FaYoutube />
-							</SocialIconLink>
-							<SocialIconLink
-								href="/"
-								target="_blank"
-								arial-label="Twitter"
-							>
-								<FaTwitter />
-							</SocialIconLink>
-							<SocialIconLink
-								href="//www.linkedin.com/in/leonardtlauenstein/"
-								target="_blank"
-								arial-label="Linkedin"
-							>
-								<FaLinkedin />
 							</SocialIconLink>
 						</SocialIcons>
 					</SocialMediaWrap>

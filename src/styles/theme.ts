@@ -4,6 +4,7 @@ interface ThemeInterface {
 		main: string
 		bg: string
 		nav_text: string
+		text: string
 
 		black: string
 		whiteTextBackground: string
@@ -49,6 +50,7 @@ export const theme: ThemeInterface = {
 		main: 'salmon',
 		bg: '#f5f0ec',
 		nav_text: '#433f3c',
+		text: '#433f3c',
 
 		black: '#000',
 		whiteTextBackground: 'rgba(0,0,0,.6)', // black at .7 background for white text of any size to pass wcag 2 AAA contrast standards. .6 only passes AA (good enough for now)
