@@ -4,9 +4,13 @@ import { Link as LinkS } from 'react-scroll'
 import { FC } from 'react'
 import styled from 'styled-components'
 
+type NavProps = {
+	scrollNav: boolean
+	theme: any
+}
 export const Nav = styled.nav`
-	background: ${({ scrollNav, theme }: any) =>
-		scrollNav ? '#000' : theme.bg};
+	background: ${({ scrollNav, theme }: NavProps) =>
+		scrollNav ? '#000' : theme.colors.bg};
 	height: 80px;
 	margin-top: -80px;
 	display: flex;
@@ -33,10 +37,11 @@ export const NavbarContainer = styled.div`
 `
 
 export const StyledNavLogo = styled.a`
-	color: ${({ theme }) => theme.nav_text || '#000'};
+	color: ${({ theme }) => theme.colors.primary || '#000'};
 	justify-self: flex-start;
 	cursor: pointer;
-	font-size: 1.5rem;
+	font-size: 1rem;
+	font-family: 'Amelaryas';
 	display: flex;
 	align-items: center;
 	margin-left: 24px;
@@ -63,10 +68,12 @@ export const MobileIcon = styled.div`
 		transform: translate(-100%, 60%);
 		font-size: 1.5rem;
 		cursor: pointer;
-		color: ${({ theme }) => theme.nav_text || '#000'};
+		color: ${({ theme }) => theme.colors.nav_text || '#000'};
 	}
 `
 export const NavMenu = styled.div`
+	color: ${({ theme, scrollNav }: NavProps) =>
+		scrollNav ? theme.colors.primary : '#000'};
 	display: flex;
 	align-items: center;
 	list-style: none;
@@ -83,7 +90,6 @@ export const NavItem = styled.li`
 `
 
 export const NavLinks = styled(LinkS)`
-	color: ${({ theme }) => theme.nav_text || '#000'};
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -106,10 +112,10 @@ export const NavBtn = styled.nav`
 
 export const StyledNavBtnLink = styled.a`
 	border-radius: 50px;
-	background: ${(props) => props.theme.main};
-	${({ theme }) => theme.nav_text || '#000'}-space: nowrap;
+	background: ${({ theme }) => theme.colors.main};
+	white-space: nowrap;
 	padding: 10px 22px;
-	color: #010606;
+	color: white;
 	font-size: 16px;
 	outline: none;
 	border: none;
@@ -119,8 +125,9 @@ export const StyledNavBtnLink = styled.a`
 
 	&:hover {
 		transition: all 0.2s ease-in-out;
-		background: ${({ theme }) => theme.nav_text || '#000'};
-		color: #010606;
+		background: transparent;
+		border: 1px solid ${({ theme }) => theme.colors.main};
+		color: ${({ theme }) => theme.colors.main};
 	}
 `
 

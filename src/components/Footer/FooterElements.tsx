@@ -95,7 +95,8 @@ export const StyledSocialLogo = styled.a`
 	justify-self: start;
 	cursor: pointer;
 	text-decoration: none;
-	font-size: 1.5rem;
+	font-family: 'Amelaryas';
+	font-size: 1rem;
 	display: flex;
 	align-items: center;
 	margin-bottom: 16px;

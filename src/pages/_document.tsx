@@ -20,6 +20,27 @@ class MyDocument extends Document {
 						href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap"
 						rel="stylesheet"
 					/>
+					<link
+						rel="preload"
+						href="/assets/fonts/Amelaryas.otf"
+						as="font"
+						type="font/otf"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/assets/fonts/DiamondFlowers.otf"
+						as="font"
+						type="font/ttf"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/assets/fonts/SinthaMoqen.otf"
+						as="font"
+						type="font/otf"
+						crossOrigin="anonymous"
+					/>
 				</Head>
 				<body>
 					<Main />

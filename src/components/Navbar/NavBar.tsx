@@ -39,7 +39,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 					<FaBars />
 				</MobileIcon>
 
-				<NavMenu>
+				<NavMenu scrollNav={scrollNav}>
 					<NavItem>
 						<NavLinks
 							to="about"
@@ -48,7 +48,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 							spy={true}
 							offset={-80}
 						>
-							About
+							CEREMONY
 						</NavLinks>
 					</NavItem>
 
@@ -60,7 +60,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 							spy={true}
 							offset={-80}
 						>
-							Discover
+							STORY
 						</NavLinks>
 					</NavItem>
 
@@ -72,7 +72,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 							spy={true}
 							offset={-80}
 						>
-							Services
+							PHOTOS
 						</NavLinks>
 					</NavItem>
 
@@ -84,7 +84,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 							spy={true}
 							offset={-80}
 						>
-							Sign Up
+							LOCATION
 						</NavLinks>
 					</NavItem>
 				</NavMenu>

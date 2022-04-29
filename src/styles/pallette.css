@@ -1,0 +1,37 @@
+.pallette {
+  color: #000; /* black */
+  color: rgba(0,0,0,.6); /* whiteTextBackground */
+  color: #393A41; /* defaultFont */
+  color: #B4B7C4; /* border */
+  color: #fafafa; /* divider */
+  color: #6E7087; /* grey */
+  color: #d4d8e7; /* grey1 */
+  color: #CACBCD; /* grey2 */
+  color: #6E7078; /* grey3 */
+  color: #3c3e42; /* grey4 */
+  color: #f9f9f9; /* greyLight */
+  color: #e4e5e6; /* greyDisabled */
+  color: #D4D8E7; /* offWhite */
+  color: #E9E9E9; /* aluminum */
+  color: #F2F2F2; /* checkBoxBackground */
+  color: #fff; /* white */
+  color: #f5f2ed; /* warmWhite */
+  color: #F9B738; /* yellow */
+  color: #B88D06; /* yellow2 */
+  color: #EF5848; /* notifyRed */
+  color: #99332e; /* orange1 */
+  color: #BF4136; /* orange */
+  color: #F69321; /* orange2 */
+  color: #D6801D; /* orange3 */
+  color: #6159A4; /* purple */
+  color: #887DE5; /* purple2 */
+  color: #00BADE; /* blue */
+  color: #037ea2; /* blueContrast */
+  color: #0099B6; /* stress5 */
+  color: #85D6E5; /* blue5 */
+  color: #006b7f; /* darkCyan */
+  color: #44BB8C; /* green */
+  color: #297f5e; /* green2 */
+  color: #389A73; /* green3 */
+  color: #70430F; /* brown */
+}
