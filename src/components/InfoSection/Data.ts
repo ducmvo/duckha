@@ -25,7 +25,7 @@ export const homeObjTwo = {
 	description: 'Hold on, our story timeline is being developed...',
 	buttonLabel: 'Learn More',
 	imgStart: true,
-	img: '/assets/images/svg-2.svg',
+	img: '/assets/images/story.jpg',
 	alt: 'lovers',
 	dark: false,
 	primary: false,
