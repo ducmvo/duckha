@@ -18,6 +18,8 @@ import {
 	CountDown
 } from './HeroElements'
 
+import Countdown from '@components/CountDown'
+
 const HeroSection = () => {
 	const [hover, setHover] = useToggle(false)
 
@@ -55,7 +57,10 @@ const HeroSection = () => {
 						Get started {hover ? <ArrowForward /> : <ArrowRight />}
 					</Button>
 				</HeroBtnWrapper> */}
-				<CountDown>118 Days | 2 Hours | 34 Minutes | 56 Seconds</CountDown>
+
+				<CountDown>
+					<Countdown />
+				</CountDown>
 			</HeroContent>
 		</HeroContainer>
 	)
