@@ -70,7 +70,7 @@ const Footer = () => {
 				<SocialMedia>
 					<SocialMediaWrap>
 						<SocialLogo href="/" onClick={toggleHome}>
-							Duc & Kha
+							D&K
 						</SocialLogo>
 						{/* <WebsiteRights>
 							D&K © {new Date().getFullYear()} All rights reserved.

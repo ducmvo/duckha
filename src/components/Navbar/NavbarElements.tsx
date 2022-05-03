@@ -13,7 +13,8 @@ export const Nav = styled.nav`
 		scrollNav ? '#000' : theme.colors.bg};
 	height: 80px;
 	margin-top: -80px;
-	display: flex;
+	display: ${({ scrollNav, theme }: NavProps) =>
+		scrollNav ? 'flex' : 'none'};
 	justify-content: center;
 	align-items: center;
 	font-size: 1rem;

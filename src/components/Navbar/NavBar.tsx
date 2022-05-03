@@ -22,7 +22,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 	const { toggleSideBar } = props
 	const [scrollNav, setScrollNav] = useState(false)
 
-	const changeNav = () => setScrollNav(window.scrollY >= 80 ? true : false)
+	const changeNav = () => setScrollNav(window.scrollY >= 200 ? true : false)
 
 	const toggleHome = () => scroll.scrollToTop()
 
@@ -34,7 +34,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 		<Nav scrollNav={scrollNav}>
 			<NavbarContainer>
 				<NavLogo href="/" onClick={toggleHome}>
-					Duc & Kha
+					D&K
 				</NavLogo>
 
 				<MobileIcon onClick={toggleSideBar}>

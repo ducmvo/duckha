@@ -3,26 +3,44 @@ import Link from 'next/link'
 import { LinkProps } from '@type/Link'
 import { FC } from 'react'
 export const Container = styled.div`
-	min-height: 692px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	padding-bottom: 3rem;
+	/* min-height: 692px;
 	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	top: 0;
+	inset: 0
 	z-index: 0;
 	overflow: hidden;
-	background: linear-gradient(108deg, salmon 50%, white 100%);
+	background: linear-gradient(108deg, salmon 50%, white 100%); */
 `
+
 export const FormWrap = styled.div`
-	height: 100%;
+	/* height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 
 	@media screen and (max-width: 480px) {
 		height: 80%;
+	} */
+	/* background: salmon; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+`
+
+export const FormTitle = styled.h1`
+	font-size: 1.8rem;
+	margin-bottom: 1.5rem;
+
+	@media screen and (max-width: 480px) {
+		font-size: 1.5rem;
 	}
 `
+
 const StyledIcon = styled.a`
 	margin-left: 32px;
 	margin-top: 32px;
@@ -45,8 +63,7 @@ export const Icon: FC<LinkProps> = (props) => {
 }
 
 export const FormContent = styled.div`
-	height: 100%;
-	display: flex;
+	display: ${({ user }: { user: boolean }) => (user ? 'none' : 'flex')};
 	flex-direction: column;
 	justify-content: center;
 
@@ -55,7 +72,11 @@ export const FormContent = styled.div`
 	}
 `
 export const Form = styled.form`
-	background-color: #191919;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* background-color: #191919;
 	max-width: 400px;
 	height: auto;
 	width: 100%;
@@ -68,7 +89,7 @@ export const Form = styled.form`
 
 	@media screen and (max-width: 480px) {
 		padding: 32px 32px;
-	}
+	} */
 `
 export const FormH1 = styled.h1`
 	margin-bottom: 40px;
@@ -78,27 +99,56 @@ export const FormH1 = styled.h1`
 	text-align: center;
 `
 export const FormLabel = styled.label`
-	margin-bottom: 8px;
+	/* margin-bottom: 8px;
 	font-size: 14px;
-	color: #fff;
+	color: #fff; */
+	/* text-transform: uppercase; */
+	font-size: 1.2rem;
+	margin-top: 15px;
+	@media screen and (max-width: 480px) {
+		font-size: 1rem;
+	}
 `
 export const FormInput = styled.input`
-	padding: 16px 16px;
-	margin-bottom: 32px;
-	border-radius: 4px;
+	padding: 5px 5px;
+	margin: 15px 0px;
+	border-radius: 5px;
+	width: 100%;
+	min-width: 250px;
 `
 export const FormButton = styled.button`
-	background: ${(props) => props.theme.main};
-	padding: 16px 0;
-	border: none;
-	border-radius: 4px;
-	color: #fff;
-	font-size: 20px;
+	/* background: ${(props) => props.theme.colors.main}; */
+	padding: 0.5rem;
+	/* border: none; */
+	border-radius: 3px;
+	width: 50%;
+	/* color: #fff; */
 	cursor: pointer;
+	text-transform: uppercase;
+	font-family: 'URWGothic';
+	font-size: 0.8rem;
+	letter-spacing: 0.1rem;
+	transition: all 0.1s ease-in-out;
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.text};
+		color: white;
+	}
+
+	@media screen and (max-width: 480px) {
+		font-size: 0.6rem;
+	}
 `
 export const Text = styled.span`
 	text-align: center;
 	margin-top: 24px;
 	color: #fff;
 	font-size: 14px;
+`
+
+export const NotFound = styled.div`
+	/* color: salmon; */
+	font-size: 1rem;
+	text-align: center;
+	margin: 10;
+	color: salmon;
 `

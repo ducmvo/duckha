@@ -17,7 +17,7 @@ class MyDocument extends Document {
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" />
 					<link
-						href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Dosis:wght@400;700&display=swap"
 						rel="stylesheet"
 					/>
 					<link
@@ -29,14 +29,29 @@ class MyDocument extends Document {
 					/>
 					<link
 						rel="preload"
-						href="/assets/fonts/DiamondFlowers.otf"
+						href="/assets/fonts/DiamondFlowers.ttf"
 						as="font"
 						type="font/ttf"
 						crossOrigin="anonymous"
 					/>
 					<link
 						rel="preload"
-						href="/assets/fonts/SinthaMoqen.otf"
+						href="/assets/fonts/URWGothic.ttf"
+						as="font"
+						type="font/ttf"
+						crossOrigin="anonymous"
+					/>
+					<link
+						rel="preload"
+						href="/assets/fonts/HighSpirited.ttf"
+						as="font"
+						type="font/ttf"
+						crossOrigin="anonymous"
+					/>
+
+					<link
+						rel="preload"
+						href="/assets/fonts/BemboStd.otf"
 						as="font"
 						type="font/otf"
 						crossOrigin="anonymous"

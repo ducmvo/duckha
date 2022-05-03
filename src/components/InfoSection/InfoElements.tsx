@@ -12,7 +12,7 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
 	display: grid;
 	z-index: 1;
-	height: 860px;
+	height: 400px;
 	width: 100%auto;
 	max-width: 1100px;
 	margin-right: auto;
@@ -82,8 +82,23 @@ export const BtnWrap = styled.div`
 	justify-content: flex-start;
 `
 export const ImgWrap = styled.div`
-	max-width: 555px;
+	max-width: 400px;
 	height: 100%;
+	position: relative;
+
+	&:before {
+		content: '';
+		height: 100%;
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+				180deg,
+				rgba(245, 240, 236, 0.2) 0%,
+				rgba(245, 240, 236, 0.3) 100%
+			),
+			linear-gradient(180deg, rgba(245, 240, 236, 0.2) 0%, transparent 100%);
+		z-index: 1;
+	}
 `
 export const Img = styled.img`
 	width: 100%;

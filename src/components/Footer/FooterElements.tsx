@@ -91,7 +91,7 @@ export const SocialMediaWrap = styled.div`
 `
 
 export const StyledSocialLogo = styled.a`
-	color: #fff;
+	color: ${({ theme }) => theme.colors.text};
 	justify-self: start;
 	cursor: pointer;
 	text-decoration: none;
@@ -124,6 +124,6 @@ export const SocialIcons = styled.div`
 	width: 120px;
 `
 export const SocialIconLink = styled.a`
-	color: #fff;
+	color: ${({ theme }) => theme.colors.text};
 	font-size: 24px;
 `

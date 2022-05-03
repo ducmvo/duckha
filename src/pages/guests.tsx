@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import useSWR from 'swr'
 import { User } from '@prisma/client'
 
-const getUsers = async (url: string) => {
-	return fetch(url).then((res) => res.json())
+const getUsers = async (...args: [string, any]) => {
+	return fetch(...args).then((res) => res.json())
 }
 
 const Guests = () => {
-	// const { data, error } = useSWR<User[]>('/api/users', getUsers)
+	const { data, error } = useSWR<User[]>('/api/users', getUsers)
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
-	// if (error) return <div>An error occurred.</div>
+	if (error) return <div>An error occurred.</div>
 
-	// if (!data) return <div>Loading...</div>
+	if (!data) return <div>Loading...</div>
 
 	const createUser = async (e: any) => {
 		e.preventDefault()
@@ -27,14 +27,13 @@ const Guests = () => {
 		console.log(res)
 	}
 
-	// console.log(data)
 	return (
 		<div>
-			{/* <ul>
-				{data.map((user: User) => (
+			<ul>
+				{data?.map((user: User) => (
 					<li key={user.id}>{user.name}</li>
 				))}
-			</ul> */}
+			</ul>
 			<div style={{ margin: '5rem' }}>
 				<form>
 					<label>Name</label>
