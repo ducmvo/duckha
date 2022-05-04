@@ -1,27 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
-
+import { theme } from './theme'
 const GlobalStyle = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
 		font-family: 'Cormorant Garamond','BemboStd','Dosis', sans-serif;
-		background: #f5f0ec;
-	}
-	h1 { 
-		font-size: 1.2rem;
-		font-family: 'BemboStd';
-		letter-spacing: 0.05rem;
-	}
-	h2 { 
-		font-family: 'URWGothic';
-		letter-spacing: 0.2rem;
-		font-size: 0.7rem;
-	}
-	h3 { 
-		font-family: 'URWGothic';
-		letter-spacing: 0.1rem;
-		font-size: 0.5rem;
+		background: ${() => theme.colors.bg};
 	}
 
 	@font-face {
