@@ -47,10 +47,14 @@ export const StyledNavLogo = styled.a`
     font-family: 'HighSpirited';
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-left: 10px;
+    /* align-items: center; */
+    margin-left: 24px;
     padding-top: 10px;
     text-decoration: none;
+    @media screen and (max-width: 468px) {
+        margin-left: 10px;
+        font-size: 2.5rem;
+    }
 `
 
 export const NavLogo: FC<LinkProps> = (props) => {
@@ -96,14 +100,19 @@ export const NavLinks = styled(LinkS)`
     align-items: center;
     text-decoration: none;
     font-family: 'URWGothic';
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.1rem;
-    padding: 0 1rem;
-    height: 100%;
+    padding: 2rem 1rem 0.6rem 1rem;
+
     cursor: pointer;
+    transition: all 0.2s ease-in;
 
     &.active {
-        border-bottom: 3px solid ${(props) => props.theme.main};
+        border-bottom: 1px solid ${(props) => props.theme.text};
+    }
+    &:hover {
+        font-weight: bold;
+        font-size: 1rem;
     }
 `
 

@@ -21,10 +21,10 @@ const Hero = () => {
     return (
         <Section>
             <Names scroll={scrollNav}>Duc & Kha</Names>
-            <BigDate>
+            <BigDate scroll={scrollNav}>
                 {day} {month} {date}, {year}
             </BigDate>
-            <Location>Hue, Vietnam</Location>
+            <Location scroll={scrollNav}>Hue, Vietnam</Location>
             <RSVPButton href="/rsvp" scroll={scrollNav}>
                 RSVP
             </RSVPButton>
@@ -52,34 +52,38 @@ export const Section = styled.div`
 
 export const Names = styled.div<HeroProps>`
     font-family: 'HighSpirited';
-    font-size: ${({ scroll }) => (scroll ? `1.5rem` : `5rem`)};
+    font-size: ${({ scroll }) => (scroll ? `1.5rem` : `6rem`)};
     opacity: ${({ scroll }) => (scroll ? 0 : 1)};
 
     transform: ${({ scroll }) =>
         scroll ? `translate(0px, -50px)` : `translate(0px, 0px)`};
-    transition: all 0.5s ease;
+    transition: all 0.3s ease-in;
     @media screen and (max-width: 468px) {
-        font-size: 3rem;
+        font-size: 4rem;
         transform: ${({ scroll }) =>
             scroll ? `translate(0px, -50px)` : `translate(0px, 0px)`};
     }
 `
-export const BigDate = styled.div`
+export const BigDate = styled.div<HeroProps>`
     /* text-transform: uppercase; */
     font-family: 'URWGothic';
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.1rem;
+    transition: all 0.2s ease;
+    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
     @media screen and (max-width: 468px) {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 `
-export const Location = styled.div`
+export const Location = styled.div<HeroProps>`
     /* text-transform: uppercase; */
     font-family: 'URWGothic';
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.1rem;
+    transition: all 0.2s ease;
+    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
     @media screen and (max-width: 468px) {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 `
 
@@ -103,12 +107,8 @@ export const StyledRSVPButton = styled.button<HeroProps>`
 
     opacity: ${({ scroll }) => (scroll ? 0 : 1)};
 
-    transform: ${({ scroll }) =>
-        scroll ? `translate(800px, -80px)` : `translate(0px, 0px)`};
-
     @media screen and (max-width: 468px) {
-        font-size: 0.6rem;
-        transform: none;
+        font-size: 0.8rem;
     }
 `
 
