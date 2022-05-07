@@ -17,15 +17,13 @@ const Hero = () => {
     const year = BigDay.getFullYear()
 
     return (
-        <Section>
-            <Names scroll={scrollNav}>Duc & Kha</Names>
-            <BigDate scroll={scrollNav}>
+        <Section scroll={scrollNav}>
+            <Names>Duc & Kha</Names>
+            <BigDate>
                 {day} {month} {date}, {year}
             </BigDate>
-            <Location scroll={scrollNav}>Hue, Vietnam</Location>
-            <RSVPButton href="/rsvp" scroll={scrollNav}>
-                RSVP
-            </RSVPButton>
+            <Location>Hue, Vietnam</Location>
+            <RSVPButton href="/rsvp">RSVP</RSVPButton>
         </Section>
     )
 }

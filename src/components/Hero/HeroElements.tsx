@@ -7,8 +7,9 @@ type HeroProps = {
     scroll?: boolean
 }
 
-export const Section = styled.div`
-    padding: 3rem;
+export const Section = styled.div<HeroProps>`
+    font-family: 'URWGothic';
+    padding: 2rem;
     height: 800px;
     border-bottom: 1px solid black;
     display: flex;
@@ -16,65 +17,52 @@ export const Section = styled.div`
     justify-content: center;
     flex-direction: column;
     gap: 0.2rem;
+    transition: all 0.2s ease-in;
     color: ${({ theme }) => theme.colors.text};
+    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
 `
 
 export const Names = styled.div<HeroProps>`
     font-family: 'HighSpirited';
-    font-size: ${({ scroll }) => (scroll ? `1.5rem` : `6rem`)};
-    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
+    font-size: 6rem;
+    margin-bottom: 1rem;
 
-    transform: ${({ scroll }) =>
-        scroll ? `translate(0px, -50px)` : `translate(0px, 0px)`};
-    transition: all 0.3s ease-in;
     @media screen and (max-width: 468px) {
-        font-size: 4rem;
-        transform: ${({ scroll }) =>
-            scroll ? `translate(0px, -50px)` : `translate(0px, 0px)`};
+        font-size: 3rem;
     }
 `
 export const BigDate = styled.div<HeroProps>`
-    /* text-transform: uppercase; */
-    font-family: 'URWGothic';
+    font-family: inherit;
     font-size: 1rem;
     letter-spacing: 0.1rem;
     transition: all 0.2s ease;
-    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
     @media screen and (max-width: 468px) {
         font-size: 0.8rem;
     }
 `
 export const Location = styled.div<HeroProps>`
-    /* text-transform: uppercase; */
-    font-family: 'URWGothic';
+    font-family: inherit;
     font-size: 1rem;
     letter-spacing: 0.1rem;
-    transition: all 0.2s ease;
-    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
     @media screen and (max-width: 468px) {
         font-size: 0.8rem;
     }
 `
 
 export const StyledRSVPButton = styled.button<HeroProps>`
+    font-family: inherit;
     margin: 0.5rem 0;
     text-transform: uppercase;
-    font-family: 'URWGothic';
     font-size: 1rem;
     letter-spacing: 0.1rem;
     width: 100px;
     padding: 0.5rem 1rem;
-    transition: all 0.2s ease-in-out;
-    transition: transform 0.5s ease, opacity 0.5s ease;
     border: 1px solid ${({ theme }) => theme.colors.text};
     cursor: pointer;
     &:hover {
-        transition: all 0.2s ease-in-out;
         background-color: ${({ theme }) => theme.colors.text};
         color: ${({ theme }) => theme.colors.white};
     }
-
-    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
 
     @media screen and (max-width: 468px) {
         font-size: 0.8rem;

@@ -100,9 +100,9 @@ export const NavLinks = styled(LinkS)`
     align-items: center;
     text-decoration: none;
     font-family: 'URWGothic';
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     letter-spacing: 0.1rem;
-    padding: 2rem 1rem 0.6rem 1rem;
+    padding: 1.5rem 1rem 0.6rem 1rem;
 
     cursor: pointer;
     transition: all 0.2s ease-in;
@@ -113,6 +113,7 @@ export const NavLinks = styled(LinkS)`
     &:hover {
         font-weight: bold;
         font-size: 1rem;
+        transform: translate(0px, -5px);
     }
 `
 
