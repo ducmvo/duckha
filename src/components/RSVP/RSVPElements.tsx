@@ -19,37 +19,38 @@ export const FormWrap = styled.div`
 `
 
 export const FormTitle = styled.h1`
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
+    font-family: 'BemboStd';
 
     @media screen and (max-width: 480px) {
         font-size: 1.5rem;
     }
 `
 
-const StyledIcon = styled.a`
-    margin-left: 32px;
-    margin-top: 32px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 32px;
-    font-family: 'Amelaryas';
-    margin-left: 16px;
-    margin-top: 8px;
-`
+// const StyledIcon = styled.a`
+//     margin-left: 32px;
+//     margin-top: 32px;
+//     text-decoration: none;
+//     color: #fff;
+//     font-weight: bold;
+//     font-size: 32px;
+//     font-family: 'Amelaryas';
+//     margin-left: 16px;
+//     margin-top: 8px;
+// `
 
-export const Icon: FC<LinkProps> = (props) => {
-    const { href, children } = props
-    return (
-        <Link href={href} passHref>
-            <StyledIcon>{children}</StyledIcon>
-        </Link>
-    )
-}
+// export const Icon: FC<LinkProps> = (props) => {
+//     const { href, children } = props
+//     return (
+//         <Link href={href} passHref>
+//             <StyledIcon>{children}</StyledIcon>
+//         </Link>
+//     )
+// }
 
 export const FormContent = styled.div`
-    display: ${({ user }: { user: boolean }) => (user ? 'none' : 'flex')};
+    display: flex;
     flex-direction: column;
     justify-content: center;
 
@@ -169,7 +170,7 @@ export const GuestName = styled.div`
     text-transform: uppercase;
 `
 export const AttendLabel = styled.div`
-    margin: 0.2rem 0;
+    margin: 1rem 0rem;
 `
 export const InputLabel = styled.label`
     cursor: pointer;
@@ -200,20 +201,17 @@ export const GuestInputText = styled.span`
 export const Companions = styled.div`
     display: flex;
     flex-direction: column;
+    padding-bottom: 1rem;
 `
 
 export const DressCode = styled.div``
 
 export const Message = styled.div`
     color: ${({ error }: { error: boolean }) => (error ? 'salmon' : 'teal')};
-    position: absolute;
-    z-index: 5;
-    background: white;
-    inset: 0;
+    top: 100px;
     height: 50px;
     padding: 10px;
     text-align: center;
     width: 100%;
-    opacity: 0.6;
     transition: all 0.2s ease-in-out;
 `

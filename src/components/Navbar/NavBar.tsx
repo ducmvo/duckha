@@ -13,14 +13,14 @@ import {
     NavMenu,
 } from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll'
-import { theme } from '@styles/theme'
 import CountDown from '@components/CountDown'
 
 type NavbarProps = {
     toggleSideBar: () => void
+    display?: boolean
 }
 const Navbar: FC<NavbarProps> = (props) => {
-    const { toggleSideBar } = props
+    const { toggleSideBar, display = false } = props
     const [scrollNav, setScrollNav] = useState(false)
 
     const changeNav = () => setScrollNav(window.scrollY >= 200 ? true : false)
@@ -32,7 +32,10 @@ const Navbar: FC<NavbarProps> = (props) => {
     }, [])
 
     const nav = (
-        <Nav scrollNav={scrollNav} className={(scrollNav && 'active') || ''}>
+        <Nav
+            scrollNav={display || scrollNav}
+            className={(scrollNav && 'active') || ''}
+        >
             <NavbarContainer>
                 <NavLogo href="/" onClick={toggleHome}>
                     D&K
@@ -43,56 +46,57 @@ const Navbar: FC<NavbarProps> = (props) => {
                     <FaBars />
                 </MobileIcon>
 
-                <NavMenu>
-                    <NavItem>
-                        <NavLinks
-                            to="about"
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            INFO
-                        </NavLinks>
-                    </NavItem>
+                {!display && (
+                    <NavMenu>
+                        <NavItem>
+                            <NavLinks
+                                to="about"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                offset={-80}
+                            >
+                                INFO
+                            </NavLinks>
+                        </NavItem>
 
-                    <NavItem>
-                        <NavLinks
-                            to="discover"
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            STORY
-                        </NavLinks>
-                    </NavItem>
+                        <NavItem>
+                            <NavLinks
+                                to="discover"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                offset={-80}
+                            >
+                                STORY
+                            </NavLinks>
+                        </NavItem>
 
-                    <NavItem>
-                        <NavLinks
-                            to="services"
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            PHOTOS
-                        </NavLinks>
-                    </NavItem>
+                        <NavItem>
+                            <NavLinks
+                                to="services"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                offset={-80}
+                            >
+                                PHOTOS
+                            </NavLinks>
+                        </NavItem>
 
-                    <NavItem>
-                        <NavLinks
-                            to="signup"
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            CONTACT
-                        </NavLinks>
-                    </NavItem>
-                </NavMenu>
-
+                        <NavItem>
+                            <NavLinks
+                                to="signup"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                offset={-80}
+                            >
+                                CONTACT
+                            </NavLinks>
+                        </NavItem>
+                    </NavMenu>
+                )}
                 <NavBtn>
                     <NavBtnLink href="/rsvp">RSVP</NavBtnLink>
                 </NavBtn>

@@ -26,9 +26,13 @@ export const Names = styled.div<HeroProps>`
     font-family: 'HighSpirited';
     font-size: 6rem;
     margin-bottom: 1rem;
+    min-width: 300px;
 
-    @media screen and (max-width: 468px) {
-        font-size: 3rem;
+    @media screen and (max-width: 530px) {
+        font-size: 4rem;
+    }
+    @media screen and (max-width: 380px) {
+        font-size: 3.8rem;
     }
 `
 export const BigDate = styled.div<HeroProps>`
@@ -36,7 +40,7 @@ export const BigDate = styled.div<HeroProps>`
     font-size: 1rem;
     letter-spacing: 0.1rem;
     transition: all 0.2s ease;
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: 530px) {
         font-size: 0.8rem;
     }
 `
@@ -44,7 +48,7 @@ export const Location = styled.div<HeroProps>`
     font-family: inherit;
     font-size: 1rem;
     letter-spacing: 0.1rem;
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: 530px) {
         font-size: 0.8rem;
     }
 `
@@ -64,7 +68,7 @@ export const StyledRSVPButton = styled.button<HeroProps>`
         color: ${({ theme }) => theme.colors.white};
     }
 
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: 530px) {
         font-size: 0.8rem;
     }
 `
