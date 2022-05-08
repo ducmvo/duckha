@@ -14,6 +14,7 @@ model User {
   phone      String?
   attend     Boolean?
   vip        Boolean?
+  request    String?
   guestId    Int?
   guest      User?    @relation("GuestCompanions", fields: [guestId], references: [id])
   companions User[]   @relation("GuestCompanions")
