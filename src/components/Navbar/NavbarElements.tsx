@@ -43,7 +43,7 @@ export const StyledNavLogo = styled.a`
     color: ${({ theme }) => theme.colors.text};
     justify-self: flex-start;
     cursor: pointer;
-    font-size: 3rem;
+    font-size: 2.5rem;
     display: flex;
     flex-direction: column;
     /* align-items: center; */

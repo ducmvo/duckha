@@ -11,7 +11,6 @@ export const Section = styled.div<HeroProps>`
     font-family: 'URWGothic';
     padding: 2rem;
     height: 100vh;
-    border-bottom: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +18,7 @@ export const Section = styled.div<HeroProps>`
     gap: 0.2rem;
     transition: all 0.2s ease-in;
     color: ${({ theme }) => theme.colors.text};
-    opacity: ${({ scroll }) => (scroll ? 0 : 1)};
+    /* opacity: ${({ scroll }) => (scroll ? 0 : 1)}; */
 `
 
 export const Names = styled.div<HeroProps>`

@@ -40,7 +40,7 @@ const Navbar: FC<NavbarProps> = (props) => {
             <NavbarContainer>
                 <NavLogo href="/" onClick={toggleHome}>
                     <NameTag>D&K</NameTag>
-                    <CountDown />
+                    {/* <CountDown /> */}
                 </NavLogo>
 
                 <MobileIcon onClick={toggleSideBar}>
