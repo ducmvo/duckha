@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
     Container,
     FormWrap,
@@ -19,72 +19,75 @@ import {
     RSVPContent,
     GuestAttendanceForm,
     RSVPTitle,
+    Message,
 } from './RSVPElements'
 import { User } from '@prisma/client'
 import { BigDay, days, months } from '@libs/data'
 
-type Guest = {
-    name: string
-    attend: boolean
-}
 type Companions = {
-    [id: number]: Guest
+    [id: number]: User
 }
-
-const guests: User[] = [
-    {
-        id: 2,
-        name: 'Duc',
-        email: 'duc@example.com',
-        phone: '123456',
-        guestId: 1,
-    },
-    {
-        id: 3,
-        name: 'Kha',
-        email: 'kha@example.com',
-        phone: '987654',
-        guestId: 1,
-    },
-]
 
 const RSVP = () => {
     const [name, setName] = useState('')
     const [user, setUser] = useState<User>()
-    const [companions, setCompanions] = useState<User[]>(guests)
+    const [companions, setCompanions] = useState<User[]>([])
     const [error, setError] = useState(false)
-    const [attend, setAttend] = useState(true)
-    const [guestAttend, setGuestAttend] = useState<Companions>({})
+    const [message, setMessage] = useState('')
+    const [attendance, setAttendance] = useState<Companions>({})
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault()
+        setMessage('')
         let url = '/api/user'
 
         const data = { name: name }
-        let res
-
-        res = await fetch(url, {
+        let res = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
         })
 
         try {
-            res = await res.json()
-            setUser(res)
+            const user = await res.json()
+            setUser(user)
+            setCompanions(user.companions)
+            const hashMap: Companions = {}
+            hashMap[user.id] = user
+            user.companions.forEach((companion: User) => {
+                hashMap[companion.id] = companion
+            })
+            setAttendance(hashMap)
             setError(false)
         } catch (err) {
-            res = undefined
+            setMessage('Opps! something went wrong')
             setError(true)
-            return
         }
+    }
 
-        url = '/api/companions'
-        res = await fetch(url, {
+    const handleSave = async (e: React.SyntheticEvent) => {
+        e.preventDefault()
+        if (!user) return
+        setMessage('')
+        let url = '/api/rsvp'
+        const companions = Object.values(attendance).filter(
+            (companion) => user.id != companion.id
+        )
+        const data = {
+            ...attendance[user.id],
+            companions: companions,
+        }
+        let res = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify(res.id),
+            body: JSON.stringify(data),
         })
 
-        res = await res.json()
-        setCompanions(guests)
+        try {
+            await res.json()
+            setError(false)
+            setMessage('Successfully updated RSVP')
+        } catch (err) {
+            setError(true)
+            setMessage('Failed to update rsvp, please try again later')
+        }
     }
 
     const date = `${days[BigDay.getDay()]} ${
@@ -113,6 +116,7 @@ const RSVP = () => {
                         Contact us as bigday@duckha2022.com
                     </NotFound>
                 )}
+                {message && <Message error={error}>{message}</Message>}
                 <FormContent user={!!user}>
                     <Form onSubmit={handleSubmit}>
                         <FormLabel>
@@ -148,15 +152,25 @@ const RSVP = () => {
                         </RSVPInfo>
 
                         <GuestAttendanceForm>
-                            <GuestName>{user?.name}</GuestName>
+                            <GuestName>{user.name}</GuestName>
                             <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
 
                             <InputLabel>
                                 <GuestInput
                                     type="radio"
-                                    value={1}
-                                    checked={attend === true}
-                                    onChange={(e: any) => setAttend(true)}
+                                    // value={1}
+                                    checked={
+                                        attendance[user.id]?.attend === true
+                                    }
+                                    onChange={(e: any) =>
+                                        setAttendance({
+                                            ...attendance,
+                                            [user.id]: {
+                                                ...attendance[user.id],
+                                                attend: true,
+                                            },
+                                        })
+                                    }
                                 />
                                 <GuestInputText>
                                     Yes, I will attend
@@ -167,8 +181,18 @@ const RSVP = () => {
                                 <GuestInput
                                     type="radio"
                                     value={0}
-                                    checked={attend === false}
-                                    onChange={(e: any) => setAttend(false)}
+                                    checked={
+                                        attendance[user.id]?.attend === false
+                                    }
+                                    onChange={(e: any) =>
+                                        setAttendance({
+                                            ...attendance,
+                                            [user.id]: {
+                                                ...attendance[user.id],
+                                                attend: false,
+                                            },
+                                        })
+                                    }
                                 />
                                 <GuestInputText>
                                     Declines with regret
@@ -183,16 +207,13 @@ const RSVP = () => {
                                         <GuestInput
                                             type="text"
                                             value={
-                                                guestAttend[guest.id]?.name ||
-                                                ''
+                                                attendance[guest.id]?.name || ''
                                             }
                                             onChange={(e: any) => {
-                                                setGuestAttend({
-                                                    ...guestAttend,
+                                                setAttendance({
+                                                    ...attendance,
                                                     [guest.id]: {
-                                                        ...guestAttend[
-                                                            guest.id
-                                                        ],
+                                                        ...attendance[guest.id],
                                                         name: e.target.value,
                                                     },
                                                 })
@@ -203,14 +224,14 @@ const RSVP = () => {
                                                 type="radio"
                                                 value={1}
                                                 checked={
-                                                    guestAttend[guest.id]
+                                                    attendance[guest.id]
                                                         ?.attend === true
                                                 }
                                                 onChange={(e: any) => {
-                                                    setGuestAttend({
-                                                        ...guestAttend,
+                                                    setAttendance({
+                                                        ...attendance,
                                                         [guest.id]: {
-                                                            ...guestAttend[
+                                                            ...attendance[
                                                                 guest.id
                                                             ],
                                                             attend: true,
@@ -228,14 +249,14 @@ const RSVP = () => {
                                                 type="radio"
                                                 value={0}
                                                 checked={
-                                                    guestAttend[guest.id]
+                                                    attendance[guest.id]
                                                         ?.attend === false
                                                 }
                                                 onChange={(e: any) => {
-                                                    setGuestAttend({
-                                                        ...guestAttend,
+                                                    setAttendance({
+                                                        ...attendance,
                                                         [guest.id]: {
-                                                            ...guestAttend[
+                                                            ...attendance[
                                                                 guest.id
                                                             ],
                                                             attend: false,
@@ -250,6 +271,7 @@ const RSVP = () => {
                                     </Companions>
                                 )
                             })}
+                            <FormButton onClick={handleSave}>Save</FormButton>
                         </GuestAttendanceForm>
                     </div>
                 )}

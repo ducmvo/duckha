@@ -171,7 +171,9 @@ export const GuestName = styled.div`
 export const AttendLabel = styled.div`
     margin: 0.2rem 0;
 `
-export const InputLabel = styled.label``
+export const InputLabel = styled.label`
+    cursor: pointer;
+`
 export const GuestInput = styled.input`
     margin: 0.5rem 0;
     padding: 0.3rem 0.3rem;
@@ -201,3 +203,17 @@ export const Companions = styled.div`
 `
 
 export const DressCode = styled.div``
+
+export const Message = styled.div`
+    color: ${({ error }: { error: boolean }) => (error ? 'salmon' : 'teal')};
+    position: absolute;
+    z-index: 5;
+    background: white;
+    inset: 0;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    opacity: 0.6;
+    transition: all 0.2s ease-in-out;
+`
