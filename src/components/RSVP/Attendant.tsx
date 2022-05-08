@@ -2,26 +2,27 @@ import { User } from '@prisma/client'
 import { FC } from 'react'
 import {
     Companions,
-    GuestName,
     GuestInput,
-    InputLabel,
     GuestInputText,
+    GuestName,
+    InputLabel,
 } from './RSVPElements'
 
 type AttendantProps = {
     attendance: any
-    handleAttendance: any
+    handleUserInput: any
     user: User
 }
 const Attendant: FC<AttendantProps> = (props) => {
-    const { attendance, handleAttendance, user } = props
+    const { attendance, handleUserInput, user } = props
     const companion = user.guestId && (
         <>
             <GuestName>GUEST NAME</GuestName>
             <GuestInput
-                type="text"
+                id="name"
+                type="input"
                 value={attendance[user.id]?.name || ''}
-                onChange={(e) => handleAttendance(user.id, e.target.value)}
+                onChange={(e) => handleUserInput(user.id, e.target.value, e)}
             />
         </>
     )
@@ -30,18 +31,20 @@ const Attendant: FC<AttendantProps> = (props) => {
             {companion || <GuestName>{user.name}</GuestName>}
             <InputLabel>
                 <GuestInput
+                    id="attendance"
                     type="radio"
                     checked={attendance[user.id]?.attend === true}
-                    onChange={() => handleAttendance(user.id, true)}
+                    onChange={(e) => handleUserInput(user.id, true, e)}
                 />
                 <GuestInputText>Will attend</GuestInputText>
             </InputLabel>
 
             <InputLabel>
                 <GuestInput
+                    id="attendance"
                     type="radio"
                     checked={attendance[user.id]?.attend === false}
-                    onChange={() => handleAttendance(user.id, false)}
+                    onChange={(e) => handleUserInput(user.id, false, e)}
                 />
                 <GuestInputText>Declines With regret</GuestInputText>
             </InputLabel>

@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-import Link from 'next/link'
-import { LinkProps } from '@type/Link'
-import { FC } from 'react'
 
 export const Container = styled.div`
     display: flex;
@@ -193,6 +190,15 @@ export const GuestInput = styled.input`
         height: 13px;
         border-radius: 100%;
         background: grey;
+    }
+`
+export const GuestInputTextArea = styled.textarea`
+    margin: 0.5rem 0;
+    padding: 0.3rem 0.3rem;
+    font-size: 1rem;
+    border: 1px solid ${({ theme }) => theme.colors.text};
+    &:focus {
+        outline-color: ${({ theme }) => theme.colors.text};
     }
 `
 export const GuestInputText = styled.span`

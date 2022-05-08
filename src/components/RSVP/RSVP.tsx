@@ -11,6 +11,7 @@ import {
     FormButton,
     FormWrap,
     GuestAttendanceForm,
+    GuestInputTextArea,
     Message,
 } from './RSVPElements'
 
@@ -66,8 +67,11 @@ const RSVP = () => {
         scroll.scrollToTop()
     }
 
-    const handleAttendance = (id: number, arg: boolean | string) => {
-        const obj = typeof arg === 'string' ? { name: arg } : { attend: arg }
+    const handleUserInput = (id: number, arg: boolean | string, e: any) => {
+        let obj = {}
+        if (e.target.id === 'name') obj = { name: arg }
+        if (e.target.id === 'attendance') obj = { attend: arg }
+        if (e.target.id === 'request') obj = { request: arg }
         setAttendance({
             ...attendance,
             [id]: {
@@ -89,7 +93,7 @@ const RSVP = () => {
                         <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
                         <Attendant
                             attendance={attendance}
-                            handleAttendance={handleAttendance}
+                            handleUserInput={handleUserInput}
                             user={user}
                         />
 
@@ -97,10 +101,20 @@ const RSVP = () => {
                             <Attendant
                                 key={guest.id}
                                 attendance={attendance}
-                                handleAttendance={handleAttendance}
+                                handleUserInput={handleUserInput}
                                 user={guest}
                             />
                         ))}
+
+                        <AttendLabel>SPECIAL REQUEST?</AttendLabel>
+                        <GuestInputTextArea
+                            id="request"
+                            rows={4}
+                            value={attendance[user.id]?.request || ''}
+                            onChange={(e: any) =>
+                                handleUserInput(user.id, e.target.value, e)
+                            }
+                        />
 
                         <FormButton onClick={handleSave}>Save</FormButton>
                     </GuestAttendanceForm>
