@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment } from 'react'
 import Document, {
     Html,
     DocumentContext,
@@ -73,10 +73,10 @@ MyDocument.getInitialProps = async (
         return {
             ...initialProps,
             styles: [
-                <>
+                <Fragment key="styles">
                     {initialProps.styles}
                     {sheet.getStyleElement()}
-                </>,
+                </Fragment>,
             ],
         }
     } finally {
