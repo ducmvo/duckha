@@ -10,10 +10,10 @@ type HeroProps = {
 export const Section = styled.div<HeroProps>`
     font-family: 'URWGothic';
     padding: 2rem;
-    height: 800px;
+    height: 100vh;
     border-bottom: 1px solid black;
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 0.2rem;
@@ -27,8 +27,10 @@ export const Names = styled.div<HeroProps>`
     font-size: 6rem;
     margin-bottom: 1rem;
     min-width: 300px;
-
-    @media screen and (max-width: 530px) {
+    @media screen and (min-width: 560px) {
+        font-size: 6rem;
+    }
+    @media screen and (max-width: 560px) {
         font-size: 4rem;
     }
     @media screen and (max-width: 380px) {

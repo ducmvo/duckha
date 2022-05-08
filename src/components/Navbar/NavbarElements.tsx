@@ -44,7 +44,6 @@ export const StyledNavLogo = styled.a`
     justify-self: flex-start;
     cursor: pointer;
     font-size: 3rem;
-    font-family: 'HighSpirited';
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -156,3 +155,8 @@ export const NavBtnLink: FC<NavBtnLinkProps> = (props) => {
         </LinkR>
     )
 }
+
+export const NameTag = styled.div`
+    font-family: 'HighSpirited';
+    padding-bottom: 15px;
+`

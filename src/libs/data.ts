@@ -23,3 +23,5 @@ export const days = [
     'Friday',
     'Saturday',
 ]
+
+export const AUTH_USER_NAME = 'duckha-guest-name'

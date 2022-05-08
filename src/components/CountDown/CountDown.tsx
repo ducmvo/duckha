@@ -38,4 +38,5 @@ const CountDownWrapper = styled.div`
     background: transparent;
     font-family: 'URWGothic';
     font-size: 0.8rem;
+    transform: translate(-5px, -15px);
 `

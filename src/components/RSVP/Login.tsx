@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import {
     Form,
     FormButton,
@@ -7,23 +7,31 @@ import {
     FormLabel,
     FormTitle,
     FormWrap,
-    Message,
     NotFound,
 } from './RSVPElements'
-
+import useSessionStorage from '@hooks/useSessionStorage'
+import { AUTH_USER_NAME } from '@libs/data'
 type LoginProps = {
     setUser: any
 }
 const Login: FC<LoginProps> = (props) => {
     const { setUser } = props
     const [error, setError] = useState(false)
+
     const [name, setName] = useState('')
+    const [username, setUsername] = useSessionStorage<string>(
+        AUTH_USER_NAME,
+        ''
+    )
 
-    const [message, setMessage] = useState('')
+    useEffect(() => {
+        if (username) {
+            setName(username)
+            handleSignIn(username)
+        }
+    }, [username])
 
-    const handleSubmit = async (e: React.SyntheticEvent) => {
-        e.preventDefault()
-        setMessage('')
+    const handleSignIn = async (name: string) => {
         let url = '/api/user'
 
         const data = { name: name }
@@ -34,12 +42,18 @@ const Login: FC<LoginProps> = (props) => {
 
         try {
             const user = await res.json()
+
             setUser(user)
             setError(false)
         } catch (err) {
-            setMessage('Opps! something went wrong')
             setError(true)
         }
+    }
+
+    const handleSubmit = async () => {
+        if (!name) return
+        if (!username) setUsername(name)
+        await handleSignIn(name)
     }
     return (
         <FormWrap>

@@ -79,9 +79,9 @@ const RSVP = () => {
 
     return (
         <Container>
-            {message && <Message error={error}>{message}</Message>}
             {(user && (
                 <FormWrap>
+                    {message && <Message error={error}>{message}</Message>}
                     <Reception />
                     <Attire />
 

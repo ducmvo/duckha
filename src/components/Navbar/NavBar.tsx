@@ -3,6 +3,7 @@ import { FaBars } from 'react-icons/fa'
 import { IconContext } from 'react-icons/lib'
 import {
     MobileIcon,
+    NameTag,
     Nav,
     NavbarContainer,
     NavBtn,
@@ -38,7 +39,7 @@ const Navbar: FC<NavbarProps> = (props) => {
         >
             <NavbarContainer>
                 <NavLogo href="/" onClick={toggleHome}>
-                    D&K
+                    <NameTag>D&K</NameTag>
                     <CountDown />
                 </NavLogo>
 
