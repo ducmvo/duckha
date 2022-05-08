@@ -27,6 +27,8 @@ export const Names = styled.div<HeroProps>`
     font-size: 6rem;
     margin-bottom: 1rem;
     min-width: 300px;
+    transition: all 0.2s ease-in;
+
     @media screen and (min-width: 560px) {
         font-size: 6rem;
     }
