@@ -6,6 +6,7 @@ import Story from '@components/Story'
 import Navbar from '@components/Navbar'
 import { useToggle } from '@hooks'
 import Footer from '@components/Footer'
+import Info from '@components/Info'
 
 const Home: NextPage = () => {
     const [isOpen, setIsOpen] = useToggle(false)
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
             </Head>
             <Navbar toggleSideBar={toggleSideBar} />
             <Hero />
-            {/* <div style={{ height: '1600px' }} /> */}
+            <Info />
             <Footer />
         </>
     )
