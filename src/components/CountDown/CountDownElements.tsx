@@ -29,3 +29,4 @@ export const CountDownLabel = styled(CountDownElement)`
         padding: 0;
     }
 `
+export const Completion = styled(CountDownElement)``

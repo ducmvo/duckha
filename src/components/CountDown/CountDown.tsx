@@ -1,32 +1,44 @@
-import React from 'react'
-import Countdown from 'react-countdown'
+import Section from '@components/Section'
 import { BigDay } from '@libs/data'
+import dynamic from 'next/dynamic'
 import {
-    CountDownWrapper,
     CountDownElement,
     CountDownLabel,
+    CountDownWrapper,
 } from './CountDownElements'
 
-import Section from '@components/Section'
+const Countdown = dynamic(() => import('react-countdown'), {
+    ssr: false,
+})
 
-const Completionist = () => <span>We did it!</span>
-const renderer = ({ days, hours, minutes, completed }: any) => {
+const MILI_SEC_PER_DAY = 1000 * 60 * 60 * 24
+
+const anniverary = Math.ceil((Date.now() - BigDay.getTime()) / MILI_SEC_PER_DAY)
+
+const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
     if (completed) {
-        // Render a completed state
-        return <Completionist />
-    } else {
-        // Render a countdown
         return (
-            <CountDownWrapper suppressHydrationWarning>
-                <CountDownElement> {days}</CountDownElement>
-                <CountDownLabel>{days > 1 ? 'DAYS' : 'DAY'}</CountDownLabel>
-                <CountDownElement>{hours}</CountDownElement>
-                <CountDownLabel>{hours > 1 ? 'HOURS' : 'HOUR'}</CountDownLabel>
-                <CountDownElement>{minutes}</CountDownElement>
-                <CountDownLabel>{minutes > 1 ? 'MINS' : 'MIN'}</CountDownLabel>
+            <CountDownWrapper>
+                <CountDownLabel>{"IT'S BEEN"}</CountDownLabel>
+                <CountDownElement>{anniverary}</CountDownElement>
+                <CountDownLabel>
+                    {anniverary > 1 ? 'DAYS' : 'DAY'}
+                </CountDownLabel>
             </CountDownWrapper>
         )
     }
+    return (
+        <CountDownWrapper suppressHydrationWarning>
+            <CountDownElement> {days}</CountDownElement>
+            <CountDownLabel>{days > 1 ? 'DAYS' : 'DAY'}</CountDownLabel>
+            <CountDownElement>{hours}</CountDownElement>
+            <CountDownLabel>{hours > 1 ? 'HOURS' : 'HOUR'}</CountDownLabel>
+            <CountDownElement>{minutes}</CountDownElement>
+            <CountDownLabel>{minutes > 1 ? 'MINS' : 'MIN'}</CountDownLabel>
+            <CountDownElement>{seconds}</CountDownElement>
+            <CountDownLabel>{seconds > 1 ? 'SECS' : 'SEC'}</CountDownLabel>
+        </CountDownWrapper>
+    )
 }
 
 const CountDown = () => {
@@ -34,8 +46,8 @@ const CountDown = () => {
         <Section skew>
             <Countdown
                 date={BigDay}
-                intervalDelay={0}
-                precision={3}
+                intervalDelay={1000}
+                precision={1000}
                 renderer={renderer}
             />
         </Section>
