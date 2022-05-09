@@ -14,8 +14,8 @@ const Story: FC<StoryProps> = (props) => {
                     <Image
                         src="/assets/images/story.jpg"
                         alt="story"
-                        width={300}
-                        height={300}
+                        width={299}
+                        height={299}
                     />
                 </ImgWrap>
                 <SectionWrap>

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const CountDownWrapper = styled.div`
     color: ${({ theme }) => theme.colors.text};
     background-color: inherit;
-    min-width: 375px;
     display: flex;
     align-items: center;
     justify-content: center;
