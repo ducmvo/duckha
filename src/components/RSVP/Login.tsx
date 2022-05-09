@@ -1,6 +1,6 @@
 import useSessionStorage from '@hooks/useSessionStorage'
 import { AUTH_USER_NAME } from '@libs/data'
-import { FC, useEffect, useState } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import {
     Form,
     FormButton,
@@ -23,32 +23,34 @@ const Login: FC<LoginProps> = (props) => {
         AUTH_USER_NAME,
         ''
     )
+    const handleSignIn = useCallback(
+        async (name: string) => {
+            setLoading(true)
+            let url = '/api/user'
+            const data = { name: name }
+            let res = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(data),
+            })
+
+            try {
+                const user = await res.json()
+                setUser(user)
+                setError(false)
+            } catch (err) {
+                setError(true)
+            }
+            setLoading(false)
+        },
+        [setUser]
+    )
 
     useEffect(() => {
         if (username) {
             setName(username)
             handleSignIn(username)
         }
-    }, [username])
-
-    const handleSignIn = async (name: string) => {
-        setLoading(true)
-        let url = '/api/user'
-        const data = { name: name }
-        let res = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(data),
-        })
-
-        try {
-            const user = await res.json()
-            setUser(user)
-            setError(false)
-        } catch (err) {
-            setError(true)
-        }
-        setLoading(false)
-    }
+    }, [username, handleSignIn])
 
     const handleSubmit = async () => {
         if (!name) return
