@@ -5,6 +5,7 @@ import { FC } from 'react'
 
 export const FooterContainer = styled.footer`
     background-color: ${({ theme }) => theme.colors.bg};
+    padding-top: 10rem;
 `
 
 export const FooterWrap = styled.div`

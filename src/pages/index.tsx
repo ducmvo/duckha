@@ -7,6 +7,7 @@ import Navbar from '@components/Navbar'
 import { useToggle } from '@hooks'
 import Footer from '@components/Footer'
 import Info from '@components/Info'
+import CountDown from '@components/CountDown'
 
 const Home: NextPage = () => {
     const [isOpen, setIsOpen] = useToggle(false)
@@ -15,11 +16,13 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Duc & Kha | Home</title>
+                <title>Duc & Kha</title>
             </Head>
             <Navbar toggleSideBar={toggleSideBar} />
             <Hero />
-            <Info />
+            <CountDown />
+            <Info id="info" />
+            <Story id="story" />
             <Footer />
         </>
     )

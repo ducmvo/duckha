@@ -14,7 +14,6 @@ import {
     NavMenu,
 } from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll'
-import CountDown from '@components/CountDown'
 
 type NavbarProps = {
     toggleSideBar: () => void
@@ -40,7 +39,6 @@ const Navbar: FC<NavbarProps> = (props) => {
             <NavbarContainer>
                 <NavLogo href="/" onClick={toggleHome}>
                     <NameTag>D&K</NameTag>
-                    {/* <CountDown /> */}
                 </NavLogo>
 
                 <MobileIcon onClick={toggleSideBar}>
@@ -51,7 +49,7 @@ const Navbar: FC<NavbarProps> = (props) => {
                     <NavMenu>
                         <NavItem>
                             <NavLinks
-                                to="about"
+                                to="info"
                                 smooth={true}
                                 duration={500}
                                 spy={true}
@@ -63,7 +61,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 
                         <NavItem>
                             <NavLinks
-                                to="discover"
+                                to="story"
                                 smooth={true}
                                 duration={500}
                                 spy={true}

@@ -1,27 +1,38 @@
-import React from 'react'
-import styled from 'styled-components'
-
-import InfoSection from '@components/InfoSection'
-
-export const storyData = {
-	id: 'discover',
-	lightBg: true,
-	lightText: false,
-	lighttextDesc: false,
-	topLine: 'Our story so far',
-	headline: 'Catch up as we begin the next chapter!',
-	description: 'Hold on, our story timeline is being developed...',
-	buttonLabel: 'Learn More',
-	imgStart: true,
-	img: '/assets/images/story.jpeg',
-	alt: 'lovers',
-	dark: false,
-	primary: false,
-	darkText: true
+import Section from '@components/Section'
+import React, { FC } from 'react'
+import Image from 'next/image'
+import { ImgWrap, SectionWrap, StoryContainer } from './StoryElements'
+type StoryProps = {
+    id?: string
 }
-
-const Story = () => {
-	return <InfoSection {...storyData} />
+const Story: FC<StoryProps> = (props) => {
+    const { id } = props
+    return (
+        <Section skew noPadding id={id}>
+            <StoryContainer>
+                <ImgWrap>
+                    <Image
+                        src="/assets/images/story.jpg"
+                        alt="story"
+                        width={300}
+                        height={300}
+                    />
+                </ImgWrap>
+                <SectionWrap>
+                    <Section title="Story" noPadding>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Rerum consectetur facilis laboriosam cum soluta.
+                        Facilis eos, eveniet repellendus eius saepe perferendis!
+                        Dolores minus ratione accusantium? Et modi mollitia,
+                        temporibus hic voluptate nulla architecto atque
+                        asperiores, exercitationem repellendus at? In esse
+                        debitis aspernatur fuga error quae dolorum harum sit!
+                        Voluptatibus, quos.
+                    </Section>
+                </SectionWrap>
+            </StoryContainer>
+        </Section>
+    )
 }
 
 export default Story
