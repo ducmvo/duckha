@@ -26,14 +26,15 @@ export const Names = styled.div<HeroProps>`
 `
 export const BigDate = styled.div<HeroProps>`
     font-family: inherit;
-    font-size: clamp(0.5rem, 5vw, 1.5rem);
+    font-size: clamp(0.5rem, 5vw, 1rem);
     letter-spacing: 0.1rem;
     text-transform: uppercase;
 `
 export const Location = styled.div<HeroProps>`
     font-family: inherit;
-    font-size: clamp(0.5rem, 5vw, 1.5rem);
+    font-size: clamp(0.5rem, 5vw, 1rem);
     letter-spacing: 0.1rem;
+    margin-bottom: 2rem;
 `
 
 export const StyledRSVPButton = styled.div<HeroProps>`

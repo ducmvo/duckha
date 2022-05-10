@@ -27,7 +27,7 @@ export const days = [
 export const AUTH_USER_NAME = 'duckha-guest-name'
 export const sectionID = ['Info', 'Story']
 export const nameTag = 'duckha'
-export const names = 'Duc&Kha'
+export const names = 'Duc & Kha'
 export const location = 'Hue, Vietnam'
 export const story = [
     `No sooner met but they looked, 
