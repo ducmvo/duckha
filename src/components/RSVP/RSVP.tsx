@@ -16,6 +16,7 @@ import {
     Message,
     RSVPTitle,
 } from './RSVPElements'
+import * as gtag from '@libs/gtag'
 
 type IAttendance = {
     [id: number]: User
@@ -53,6 +54,14 @@ const RSVP = () => {
             ...attendance[user.id],
             companions: companions,
         }
+
+        gtag.event({
+            action: 'submit_form',
+            category: 'RSVP',
+            label: 'rsvp_response',
+            value: attendance,
+        })
+
         let res = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),

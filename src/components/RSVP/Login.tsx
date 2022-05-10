@@ -13,6 +13,7 @@ import {
 import FormButton from '@components/Button'
 import Section from '@components/Section'
 import Loading from '@components/Loading'
+import * as gtag from '@libs/gtag'
 
 type LoginProps = {
     setUser: any
@@ -59,6 +60,12 @@ const Login: FC<LoginProps> = (props) => {
     const handleSubmit = async () => {
         if (!name) return
         if (!username) setUsername(name)
+        gtag.event({
+            action: 'submit_form',
+            category: 'RSVP',
+            label: 'login',
+            value: name,
+        })
         await handleSignIn(name)
     }
 
