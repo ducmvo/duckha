@@ -56,10 +56,10 @@ const RSVP = () => {
         }
 
         gtag.event({
-            action: 'submit_form',
+            action: 'save_rsvp',
             category: 'RSVP',
             label: 'rsvp_response',
-            value: attendance,
+            value: JSON.stringify(attendance),
         })
 
         let res = await fetch(url, {

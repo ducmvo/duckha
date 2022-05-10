@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Duc & Kha</title>
+                <title>Duc & Kha | Home</title>
             </Head>
             <Navbar toggleSideBar={toggleSideBar} />
             <Sidebar isOpen={isOpen} toggleSideBar={toggleSideBar} />

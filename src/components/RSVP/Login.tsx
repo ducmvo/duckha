@@ -61,10 +61,10 @@ const Login: FC<LoginProps> = (props) => {
         if (!name) return
         if (!username) setUsername(name)
         gtag.event({
-            action: 'submit_form',
+            action: 'login_rsvp',
             category: 'RSVP',
             label: 'login',
-            value: name,
+            value: name.toLocaleUpperCase(),
         })
         await handleSignIn(name)
     }
