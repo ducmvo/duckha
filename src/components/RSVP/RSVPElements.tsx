@@ -41,6 +41,7 @@ export const Form = styled.form`
 export const FormLabel = styled.label`
     font-size: min(6vw, 1.5rem);
     margin-top: 15px;
+    text-align: center;
 `
 export const FormInput = styled.input`
     width: 100%;

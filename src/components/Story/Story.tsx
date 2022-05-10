@@ -1,8 +1,8 @@
 import Section from '@components/Section'
-import React, { FC } from 'react'
+import { story } from '@libs/data'
 import Image from 'next/image'
+import React, { FC } from 'react'
 import { ImgWrap, SectionWrap, StoryContainer, Text } from './StoryElements'
-import { sectionID, story } from '@libs/data'
 type StoryProps = {
     id?: string
 }

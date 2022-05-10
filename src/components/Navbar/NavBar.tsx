@@ -48,17 +48,20 @@ const Navbar: FC<NavbarProps> = (props) => {
 
                 {!display && (
                     <NavMenu>
-                        <NavLinks
-                            to={sectionID[0]}
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            {sectionID[0]}
-                        </NavLinks>
+                        {sectionID.map((s, i) => (
+                            <NavLinks
+                                key={i}
+                                to={s}
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                offset={-80}
+                            >
+                                {s}
+                            </NavLinks>
+                        ))}
 
-                        <NavLinks
+                        {/* <NavLinks
                             to={sectionID[1]}
                             smooth={true}
                             duration={500}
@@ -86,7 +89,7 @@ const Navbar: FC<NavbarProps> = (props) => {
                             offset={-80}
                         >
                             {sectionID[3]}
-                        </NavLinks>
+                        </NavLinks> */}
                     </NavMenu>
                 )}
                 <NavBtn>

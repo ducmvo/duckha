@@ -11,10 +11,13 @@ import {
     NotFound,
 } from './RSVPElements'
 import FormButton from '@components/Button'
+import Section from '@components/Section'
+import Loading from '@components/Loading'
 
 type LoginProps = {
     setUser: any
 }
+
 const Login: FC<LoginProps> = (props) => {
     const { setUser } = props
     const [error, setError] = useState(false)
@@ -61,42 +64,44 @@ const Login: FC<LoginProps> = (props) => {
 
     return (
         (!loading && (
-            <FormWrap>
-                <FormTitle>RSVP</FormTitle>
-                {error && (
-                    <NotFound>
-                        {"Hm... We can't find your name!"}
-                        <br />
-                        Make sure you type your name as it appears on your
-                        invitation.
-                        <br />
-                        <br />
-                        Need support?
-                        <br />
-                        Contact us as bigday@duckha2022.com
-                    </NotFound>
-                )}
+            <Section>
+                <FormWrap>
+                    <FormTitle>RSVP</FormTitle>
+                    {error && (
+                        <NotFound>
+                            {"Hm... We can't find your name!"}
+                            <br />
+                            Make sure you type your name as it appears on your
+                            invitation.
+                            <br />
+                            <br />
+                            Need support?
+                            <br />
+                            Contact us as bigday@duckha2022.com
+                        </NotFound>
+                    )}
 
-                <FormContent>
-                    <Form onSubmit={handleSubmit}>
-                        <FormLabel>
-                            Please enter your first and last name
-                        </FormLabel>
-                        <FormInput
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        <FormButton
-                            onClick={handleSubmit}
-                            style={{ fontFamily: 'URWGothic' }}
-                        >
-                            Continue
-                        </FormButton>
-                    </Form>
-                </FormContent>
-            </FormWrap>
-        )) || <div>Loading...</div>
+                    <FormContent>
+                        <Form onSubmit={handleSubmit}>
+                            <FormLabel>
+                                Please enter your first and last name
+                            </FormLabel>
+                            <FormInput
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <FormButton
+                                onClick={handleSubmit}
+                                style={{ fontFamily: 'URWGothic' }}
+                            >
+                                Continue
+                            </FormButton>
+                        </Form>
+                    </FormContent>
+                </FormWrap>
+            </Section>
+        )) || <Loading />
     )
 }
 

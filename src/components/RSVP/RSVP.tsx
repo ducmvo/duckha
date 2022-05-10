@@ -83,49 +83,50 @@ const RSVP = () => {
         })
     }
 
+    if (!user) return <Login setUser={setUser} />
+
     return (
         <Container>
-            {(user && (
-                <Section noPadding>
-                    <FormWrap>
-                        <RSVPTitle>Rsvp</RSVPTitle>
-                        {message && <Message error={error}>{message}</Message>}
-                        <GuestAttendanceForm>
-                            <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
+            <Section noPadding>
+                <FormWrap>
+                    <RSVPTitle>Rsvp</RSVPTitle>
+                    {message && <Message error={error}>{message}</Message>}
+                    <GuestAttendanceForm>
+                        <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
+                        <Attendant
+                            attendance={attendance}
+                            handleUserInput={handleUserInput}
+                            user={user}
+                        />
+
+                        {user.companions.map((guest) => (
                             <Attendant
+                                key={guest.id}
                                 attendance={attendance}
                                 handleUserInput={handleUserInput}
-                                user={user}
+                                user={guest}
                             />
+                        ))}
 
-                            {user.companions.map((guest) => (
-                                <Attendant
-                                    key={guest.id}
-                                    attendance={attendance}
-                                    handleUserInput={handleUserInput}
-                                    user={guest}
-                                />
-                            ))}
+                        <AttendLabel>SPECIAL REQUEST?</AttendLabel>
+                        <GuestInputTextArea
+                            id="request"
+                            rows={4}
+                            value={attendance[user.id]?.request || ''}
+                            onChange={(e: any) =>
+                                handleUserInput(user.id, e.target.value, e)
+                            }
+                        />
+                    </GuestAttendanceForm>
+                    <FormButton
+                        onClick={handleSave}
+                        style={{ fontFamily: 'URWGothic' }}
+                    >
+                        Save
+                    </FormButton>
+                </FormWrap>
+            </Section>
 
-                            <AttendLabel>SPECIAL REQUEST?</AttendLabel>
-                            <GuestInputTextArea
-                                id="request"
-                                rows={4}
-                                value={attendance[user.id]?.request || ''}
-                                onChange={(e: any) =>
-                                    handleUserInput(user.id, e.target.value, e)
-                                }
-                            />
-                        </GuestAttendanceForm>
-                        <FormButton
-                            onClick={handleSave}
-                            style={{ fontFamily: 'URWGothic' }}
-                        >
-                            Save
-                        </FormButton>
-                    </FormWrap>
-                </Section>
-            )) || <Login setUser={setUser} />}
             <Section skew>
                 <Reception />
             </Section>
