@@ -1,64 +1,68 @@
 import React, { FC } from 'react'
-import { Button } from '@components/Button'
+import Button from '@components/Button'
 import {
-	InfoContainer,
-	InfoWrapper,
-	InfoRow,
-	Column1,
-	Column2,
-	TextWrapper,
-	TopLine,
-	Heading,
-	Subtitle,
-	BtnWrap,
-	ImgWrap,
-	Img
+    InfoContainer,
+    InfoWrapper,
+    InfoRow,
+    Column1,
+    Column2,
+    TextWrapper,
+    TopLine,
+    Heading,
+    Subtitle,
+    BtnWrap,
+    ImgWrap,
+    Img,
 } from './InfoElements'
 
 type InfoProps = {
-	lightBg: boolean
-	id: string
-	imgStart: boolean
-	topLine: string
-	lightText: boolean
-	headline: string
-	darkText: boolean
-	description: string
-	buttonLabel: string
-	alt: string
-	img: string
-	primary: boolean
-	dark?: boolean
-	dark2?: boolean
+    lightBg: boolean
+    id: string
+    imgStart: boolean
+    topLine: string
+    lightText: boolean
+    headline: string
+    darkText: boolean
+    description: string
+    buttonLabel: string
+    alt: string
+    img: string
+    primary: boolean
+    dark?: boolean
+    dark2?: boolean
 }
 const Info: FC<InfoProps> = (props) => {
-	const {
-		lightBg,
-		id,
-		imgStart,
-		topLine,
-		lightText,
-		headline,
-		darkText,
-		description,
-		buttonLabel,
-		alt,
-		img,
-		primary,
-		dark,
-		dark2
-	} = props
-	return (
-		<>
-			<InfoContainer lightBg={lightBg} id={id}>
-				<InfoWrapper>
-					<InfoRow imgStart={imgStart}>
-						<Column1>
-							<TextWrapper>
-								<TopLine>{topLine}</TopLine>
-								<Heading lightText={lightText}>{headline}</Heading>
-								<Subtitle darkText={darkText}>{description}</Subtitle>
-								{/* <BtnWrap>
+    const {
+        lightBg,
+        id,
+        imgStart,
+        topLine,
+        lightText,
+        headline,
+        darkText,
+        description,
+        buttonLabel,
+        alt,
+        img,
+        primary,
+        dark,
+        dark2,
+    } = props
+    return (
+        <>
+            <InfoContainer lightBg={lightBg} id={id}>
+                <InfoWrapper>
+                    <InfoRow imgStart={imgStart}>
+                        <Column1>
+                            <TextWrapper>
+                                <TopLine>{topLine}</TopLine>
+                                <Heading lightText={lightText}>
+                                    {headline}
+                                </Heading>
+                                <Subtitle darkText={darkText}>
+                                    {description}
+                                </Subtitle>
+                                {/* <BtnWrap>
 									<Button
 										to="home"
 										smooth={true}
@@ -73,18 +77,18 @@ const Info: FC<InfoProps> = (props) => {
 										{buttonLabel}
 									</Button>
 								</BtnWrap> */}
-							</TextWrapper>
-						</Column1>
-						<Column2>
-							<ImgWrap>
-								<Img src={img} alt={alt} />
-							</ImgWrap>
-						</Column2>
-					</InfoRow>
-				</InfoWrapper>
-			</InfoContainer>
-		</>
-	)
+                            </TextWrapper>
+                        </Column1>
+                        <Column2>
+                            <ImgWrap>
+                                <Img src={img} alt={alt} />
+                            </ImgWrap>
+                        </Column2>
+                    </InfoRow>
+                </InfoWrapper>
+            </InfoContainer>
+        </>
+    )
 }
 
 export default Info
