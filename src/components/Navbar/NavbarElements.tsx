@@ -10,50 +10,42 @@ type NavProps = {
 }
 export const Nav = styled.nav`
     background: ${({ theme }: NavProps) => theme.colors.bg};
-    height: 80px;
-    margin-top: -80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
     position: sticky;
-    top: 0;
+    top: 0px;
     z-index: 10;
     opacity: ${({ scrollNav }: NavProps) => (scrollNav ? 1 : 0)};
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     &.active {
         opacity: 1;
-    }
-
-    @media screen and (max-width: 960px) {
-        transition: all 0.8s ease;
     }
 `
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    height: 80px;
     z-index: 1;
     width: 100%;
-    padding: 0 24px;
-    max-width: 1100px;
+    padding: 0 35px;
 `
 
+export const NameTag = styled.div`
+    font-family: 'HighSpirited';
+    font-size: 3.5rem;
+    text-align: center;
+    height: 100%;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    margin-top: -0.5rem;
+`
 export const StyledNavLogo = styled.a`
     color: ${({ theme }) => theme.colors.text};
-    justify-self: flex-start;
     cursor: pointer;
-    font-size: 2.5rem;
     display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    margin-left: 24px;
-    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    @media screen and (max-width: 468px) {
-        margin-left: 10px;
-        font-size: 2.5rem;
-    }
 `
 
 export const NavLogo: FC<LinkProps> = (props) => {
@@ -90,29 +82,28 @@ export const NavMenu = styled.div`
     }
 `
 
-export const NavItem = styled.li`
-    height: 80px;
-`
+export const NavItem = styled.li``
 
 export const NavLinks = styled(LinkS)`
+    height: 100%;
+    min-width: 130px;
+    letter-spacing: 0.3rem;
+    font-size: 0.9rem;
     display: flex;
+    justify-content: center;
     align-items: center;
-    text-decoration: none;
+    /* padding: 1.4rem 1rem; */
+    text-transform: uppercase;
     font-family: 'URWGothic';
-    font-size: 0.8rem;
-    letter-spacing: 0.1rem;
-    padding: 1.5rem 1rem 0.6rem 1rem;
 
     cursor: pointer;
     transition: all 0.2s ease-in;
-
-    &.active {
-        border-bottom: 1px solid ${(props) => props.theme.text};
-    }
     &:hover {
         font-weight: bold;
-        font-size: 1rem;
         transform: translate(0px, -5px);
+    }
+    &.active {
+        border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
     }
 `
 
@@ -124,23 +115,21 @@ export const NavBtn = styled.nav`
     }
 `
 
-export const StyledNavBtnLink = styled.a`
+export const StyledNavBtnLink = styled.div`
     background: transparent;
     color: ${({ theme }) => theme.colors.text};
     border: 1px solid ${({ theme }) => theme.colors.text};
-
     white-space: nowrap;
-    padding: 0.5rem 1.5rem;
-    font-size: 16px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
     font-family: 'URWGothic';
     outline: none;
     letter-spacing: 0.1rem;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease;
     text-decoration: none;
 
     &:hover {
-        transition: all 0.2s ease-in-out;
         background: ${({ theme }) => theme.colors.text};
         color: ${({ theme }) => theme.colors.white};
     }
@@ -155,8 +144,3 @@ export const NavBtnLink: FC<NavBtnLinkProps> = (props) => {
         </LinkR>
     )
 }
-
-export const NameTag = styled.div`
-    font-family: 'HighSpirited';
-    padding-bottom: 15px;
-`

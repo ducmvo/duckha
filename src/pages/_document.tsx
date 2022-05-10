@@ -20,7 +20,7 @@ class MyDocument extends Document {
                     />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
                         rel="stylesheet"
                     />
 
@@ -36,14 +36,6 @@ class MyDocument extends Document {
                         href="/assets/fonts/HighSpirited.ttf"
                         as="font"
                         type="font/ttf"
-                        crossOrigin="anonymous"
-                    />
-
-                    <link
-                        rel="preload"
-                        href="/assets/fonts/BemboStd.otf"
-                        as="font"
-                        type="font/otf"
                         crossOrigin="anonymous"
                     />
                 </Head>

@@ -2,13 +2,14 @@ import Section from '@components/Section'
 import React, { FC } from 'react'
 import Image from 'next/image'
 import { ImgWrap, SectionWrap, StoryContainer } from './StoryElements'
+import { sectionID } from '@libs/data'
 type StoryProps = {
     id?: string
 }
 const Story: FC<StoryProps> = (props) => {
     const { id } = props
     return (
-        <Section skew noPadding id={id}>
+        <Section skew noPadding id={sectionID[1]}>
             <StoryContainer>
                 <ImgWrap>
                     <Image
@@ -19,7 +20,7 @@ const Story: FC<StoryProps> = (props) => {
                     />
                 </ImgWrap>
                 <SectionWrap>
-                    <Section title="Story" noPadding>
+                    <Section title={sectionID[1]} noPadding>
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Rerum consectetur facilis laboriosam cum soluta.
                         Facilis eos, eveniet repellendus eius saepe perferendis!

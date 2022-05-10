@@ -1,37 +1,38 @@
 import React from 'react'
 import {
-	FaFacebook,
-	FaInstagram,
-	FaLinkedin,
-	FaTwitter,
-	FaYoutube
+    FaFacebook,
+    FaInstagram,
+    FaLinkedin,
+    FaTwitter,
+    FaYoutube,
 } from 'react-icons/fa'
 import {
-	FooterContainer,
-	FooterWrap,
-	FooterLinkWrapper,
-	FooterLinkItems,
-	FooterLinkContainer,
-	FooterLinkTitle,
-	FooterLink,
-	SocialIconLink,
-	SocialIcons,
-	SocialLogo,
-	SocialMedia,
-	SocialMediaWrap,
-	WebsiteRights
+    FooterContainer,
+    FooterWrap,
+    FooterLinkWrapper,
+    FooterLinkItems,
+    FooterLinkContainer,
+    FooterLinkTitle,
+    FooterLink,
+    SocialIconLink,
+    SocialIcons,
+    SocialLogo,
+    SocialMedia,
+    SocialMediaWrap,
+    WebsiteRights,
 } from './FooterElements'
 import { animateScroll as scroll } from 'react-scroll'
+import { nameTag } from '@libs/data'
 
 const Footer = () => {
-	const toggleHome = () => {
-		scroll.scrollToTop()
-	}
+    const toggleHome = () => {
+        scroll.scrollToTop()
+    }
 
-	return (
-		<FooterContainer>
-			<FooterWrap>
-				{/* <FooterLinkContainer>
+    return (
+        <FooterContainer>
+            <FooterWrap>
+                {/* <FooterLinkContainer>
 					<FooterLinkWrapper>
 						<FooterLinkItems>
 							<FooterLinkTitle>About us</FooterLinkTitle>
@@ -67,42 +68,42 @@ const Footer = () => {
 						</FooterLinkItems>
 					</FooterLinkWrapper>
 				</FooterLinkContainer> */}
-				<SocialMedia>
-					<SocialMediaWrap>
-						<SocialLogo href="/" onClick={toggleHome}>
-							D&K
-						</SocialLogo>
-						{/* <WebsiteRights>
+                <SocialMedia>
+                    <SocialMediaWrap>
+                        <SocialLogo href="/" onClick={toggleHome}>
+                            {nameTag}
+                        </SocialLogo>
+                        {/* <WebsiteRights>
 							D&K © {new Date().getFullYear()} All rights reserved.
 						</WebsiteRights> */}
-						<SocialIcons>
-							<SocialIconLink
-								href="//www.facebook/duckha2022"
-								target="_blank"
-								arial-label="Facebook"
-							>
-								<FaFacebook />
-							</SocialIconLink>
-							<SocialIconLink
-								href="//www.instagram.com/duckha2022/"
-								target="_blank"
-								arial-label="Instagram"
-							>
-								<FaInstagram />
-							</SocialIconLink>
-							<SocialIconLink
-								href="//www.youtube.com/channel/duckha2022"
-								target="_blank"
-								arial-label="Youtube"
-							>
-								<FaYoutube />
-							</SocialIconLink>
-						</SocialIcons>
-					</SocialMediaWrap>
-				</SocialMedia>
-			</FooterWrap>
-		</FooterContainer>
-	)
+                        <SocialIcons>
+                            <SocialIconLink
+                                href="//www.facebook/duckha2022"
+                                target="_blank"
+                                arial-label="Facebook"
+                            >
+                                <FaFacebook />
+                            </SocialIconLink>
+                            <SocialIconLink
+                                href="//www.instagram.com/duckha2022/"
+                                target="_blank"
+                                arial-label="Instagram"
+                            >
+                                <FaInstagram />
+                            </SocialIconLink>
+                            <SocialIconLink
+                                href="//www.youtube.com/channel/duckha2022"
+                                target="_blank"
+                                arial-label="Youtube"
+                            >
+                                <FaYoutube />
+                            </SocialIconLink>
+                        </SocialIcons>
+                    </SocialMediaWrap>
+                </SocialMedia>
+            </FooterWrap>
+        </FooterContainer>
+    )
 }
 
 export default Footer

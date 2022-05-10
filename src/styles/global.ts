@@ -15,23 +15,15 @@ const GlobalStyle = createGlobalStyle`
 		font-style: normal;
 	}
 	
-	@font-face {
-		font-family: 'BemboStd';
-		src: url("/assets/fonts/BemboStd.otf");
-		font-weight: 400;
-		font-style: normal;
-	}
 	* {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
-		font-family: 'Cormorant Garamond', 'BemboStd', sans-serif;
+		font-family: 'Cormorant Garamond', serif;
+		font-weight: 500;
+		font-style: normal;
 		background: ${() => theme.colors.bg};
 	}
-
-	
-	
-
 	
 `
 

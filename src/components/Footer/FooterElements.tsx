@@ -96,12 +96,10 @@ export const StyledSocialLogo = styled.a`
     cursor: pointer;
     text-decoration: none;
     font-family: 'HighSpirited';
-    font-size: 1rem;
+    font-size: 4rem;
     display: flex;
     align-items: center;
     margin-bottom: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
 `
 
 export const SocialLogo: FC<LinkProps> = (props) => {

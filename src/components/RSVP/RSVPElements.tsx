@@ -1,3 +1,4 @@
+import Button from '@components/Button'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -9,6 +10,7 @@ export const Container = styled.div`
 `
 
 export const FormWrap = styled.div`
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,41 +18,14 @@ export const FormWrap = styled.div`
 `
 
 export const FormTitle = styled.h1`
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    font-family: 'BemboStd';
-
-    @media screen and (max-width: 480px) {
-        font-size: 1.5rem;
-    }
+    font-size: min(3rem, 9vw);
+    margin-bottom: 1rem;
 `
-
-// const StyledIcon = styled.a`
-//     margin-left: 32px;
-//     margin-top: 32px;
-//     text-decoration: none;
-//     color: #fff;
-//     font-weight: bold;
-//     font-size: 32px;
-//     font-family: 'Amelaryas';
-//     margin-left: 16px;
-//     margin-top: 8px;
-// `
-
-// export const Icon: FC<LinkProps> = (props) => {
-//     const { href, children } = props
-//     return (
-//         <Link href={href} passHref>
-//             <StyledIcon>{children}</StyledIcon>
-//         </Link>
-//     )
-// }
 
 export const FormContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     @media screen and (max-width: 480px) {
         padding: 10px;
     }
@@ -61,19 +36,10 @@ export const Form = styled.form`
     justify-content: center;
     align-items: center;
 `
-export const FormH1 = styled.h1`
-    margin-bottom: 40px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 400;
-    text-align: center;
-`
+
 export const FormLabel = styled.label`
-    font-size: 1.2rem;
+    font-size: min(6vw, 1.5rem);
     margin-top: 15px;
-    @media screen and (max-width: 480px) {
-        font-size: 1rem;
-    }
 `
 export const FormInput = styled.input`
     width: 100%;
@@ -81,33 +47,15 @@ export const FormInput = styled.input`
 
     margin: 0.5rem 0;
     padding: 0.3rem 0.3rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     border: 1px solid ${({ theme }) => theme.colors.text};
 
     &:focus {
         outline-color: ${({ theme }) => theme.colors.text};
     }
 `
-export const FormButton = styled.button`
-    padding: 0.5rem;
-    margin: 1rem 0.5rem;
-    border-radius: 3px;
-    width: 50%;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-family: 'URWGothic';
-    font-size: 0.8rem;
-    letter-spacing: 0.1rem;
-    transition: all 0.1s ease-in-out;
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.text};
-        color: white;
-    }
+export const FormButton = styled(Button)``
 
-    @media screen and (max-width: 480px) {
-        font-size: 0.6rem;
-    }
-`
 export const Text = styled.span`
     text-align: center;
     margin-top: 24px;
@@ -131,37 +79,24 @@ export const RSVPInfo = styled.div`
 `
 
 export const RSVPTitle = styled.div`
-    font-size: 1.5rem;
-    font-family: 'BemboStd';
-
-    @media screen and (max-width: 480px) {
-        font-size: 1.3rem;
-    }
-    padding: 0.5rem;
+    font-size: min(2.5rem, 15vw);
+    font-family: 'Ballet';
+    padding: 0.2rem;
 `
 
 export const RSVPContent = styled.div`
     font-family: 'URWGothic';
     letter-spacing: 0.1rem;
-    font-size: 0.8rem;
+    font-size: min(1rem, 5vw);
     padding-bottom: 0.2rem;
     text-transform: uppercase;
     text-align: center;
-
-    @media screen and (max-width: 480px) {
-        font-size: 0.7rem;
-    }
 `
 
 export const GuestAttendanceForm = styled.form`
-    font-size: 1rem;
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
-
-    @media screen and (max-width: 480px) {
-        font-size: 0.9rem;
-    }
+    font-size: min(1.2rem, 8vw);
 `
 export const GuestName = styled.div`
     text-transform: uppercase;
@@ -175,12 +110,12 @@ export const InputLabel = styled.label`
 export const GuestInput = styled.input`
     margin: 0.5rem 0;
     padding: 0.3rem 0.3rem;
-    font-size: 1rem;
+    font-size: min(1rem, 10vw);
     border: 1px solid ${({ theme }) => theme.colors.text};
     &:focus {
         outline-color: ${({ theme }) => theme.colors.text};
     }
-    &[type='radio']:checked:before {
+    /* &[type='radio']:checked:before {
         content: '';
         display: block;
         position: relative;
@@ -190,12 +125,12 @@ export const GuestInput = styled.input`
         height: 13px;
         border-radius: 100%;
         background: grey;
-    }
+    } */
 `
 export const GuestInputTextArea = styled.textarea`
     margin: 0.5rem 0;
     padding: 0.3rem 0.3rem;
-    font-size: 1rem;
+    font-size: min(1rem, 10vw);
     border: 1px solid ${({ theme }) => theme.colors.text};
     &:focus {
         outline-color: ${({ theme }) => theme.colors.text};
@@ -213,11 +148,14 @@ export const Companions = styled.div`
 export const DressCode = styled.div``
 
 export const Message = styled.div`
-    color: ${({ error }: { error: boolean }) => (error ? 'salmon' : 'teal')};
-    top: 100px;
+    color: white;
     height: 50px;
-    padding: 10px;
+    padding: 0.7rem;
     text-align: center;
-    width: 100%;
-    transition: all 0.2s ease-in-out;
+    width: min(300px, 80vh);
+    font-family: 'URWGothic';
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    background-color: ${({ theme, error }: { theme: any; error: boolean }) =>
+        error ? theme.colors.primary : theme.colors.green};
 `

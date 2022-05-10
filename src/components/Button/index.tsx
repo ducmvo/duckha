@@ -1,2 +1,1 @@
-import { Button } from './ButtonElements'
-export { Button }
+export { default } from './Button'

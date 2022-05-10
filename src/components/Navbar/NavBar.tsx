@@ -14,6 +14,7 @@ import {
     NavMenu,
 } from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll'
+import { sectionID, nameTag } from '@libs/data'
 
 type NavbarProps = {
     toggleSideBar: () => void
@@ -38,7 +39,7 @@ const Navbar: FC<NavbarProps> = (props) => {
         >
             <NavbarContainer>
                 <NavLogo href="/" onClick={toggleHome}>
-                    <NameTag>D&K</NameTag>
+                    <NameTag>{nameTag}</NameTag>
                 </NavLogo>
 
                 <MobileIcon onClick={toggleSideBar}>
@@ -47,53 +48,45 @@ const Navbar: FC<NavbarProps> = (props) => {
 
                 {!display && (
                     <NavMenu>
-                        <NavItem>
-                            <NavLinks
-                                to="info"
-                                smooth={true}
-                                duration={500}
-                                spy={true}
-                                offset={-80}
-                            >
-                                INFO
-                            </NavLinks>
-                        </NavItem>
+                        <NavLinks
+                            to={sectionID[0]}
+                            smooth={true}
+                            duration={500}
+                            spy={true}
+                            offset={-80}
+                        >
+                            {sectionID[0]}
+                        </NavLinks>
 
-                        <NavItem>
-                            <NavLinks
-                                to="story"
-                                smooth={true}
-                                duration={500}
-                                spy={true}
-                                offset={-80}
-                            >
-                                STORY
-                            </NavLinks>
-                        </NavItem>
+                        <NavLinks
+                            to={sectionID[1]}
+                            smooth={true}
+                            duration={500}
+                            spy={true}
+                            offset={-80}
+                        >
+                            {sectionID[1]}
+                        </NavLinks>
 
-                        <NavItem>
-                            <NavLinks
-                                to="services"
-                                smooth={true}
-                                duration={500}
-                                spy={true}
-                                offset={-80}
-                            >
-                                PHOTOS
-                            </NavLinks>
-                        </NavItem>
+                        <NavLinks
+                            to={sectionID[2]}
+                            smooth={true}
+                            duration={500}
+                            spy={true}
+                            offset={-80}
+                        >
+                            {sectionID[2]}
+                        </NavLinks>
 
-                        <NavItem>
-                            <NavLinks
-                                to="signup"
-                                smooth={true}
-                                duration={500}
-                                spy={true}
-                                offset={-80}
-                            >
-                                CONTACT
-                            </NavLinks>
-                        </NavItem>
+                        <NavLinks
+                            to={sectionID[3]}
+                            smooth={true}
+                            duration={500}
+                            spy={true}
+                            offset={-80}
+                        >
+                            {sectionID[3]}
+                        </NavLinks>
                     </NavMenu>
                 )}
                 <NavBtn>

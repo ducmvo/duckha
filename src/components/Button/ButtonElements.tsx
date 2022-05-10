@@ -1,22 +1,43 @@
 import styled from 'styled-components'
-import { Link } from 'react-scroll'
+import LinkR from 'next/link'
+import { Link as LinkS } from 'react-scroll'
+import { LinkProps } from '@type/Link'
+import { FC } from 'react'
 
-export const Button = styled(Link)<any>`
-	border-radius: 50px;
-	background: ${({ primary, theme }) => (primary ? theme.main : '#010606')};
-	white-space: nowrap;
-	padding: ${({ big }) => (big ? '14px  48px' : '12px 30px')};
-	color: ${({ dark }) => (dark ? '#010606' : '#fff')};
-	font-size: ${({ fontBig }) => (fontBig ? '20px' : '16px')};
-	outline: none;
-	border: none;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: all 0.2s ease-in-out;
-	&:hover {
-		transition: all 0.2s ease-in-out;
-		background: ${({ primary, theme }) => (primary ? '#fff' : theme.main)};
-	}
+export const StyledButton = styled.div`
+    font-family: inherit;
+    margin: 0.5rem 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: clamp(0.5rem, 5vw, 1.5rem);
+    letter-spacing: 0.2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid ${({ theme }) => theme.colors.text};
+    box-shadow: 2px 3px 6px #b0b0b0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.text};
+        color: ${({ theme }) => theme.colors.white};
+        box-shadow: 5px 5px 15px #808080;
+    }
 `
+
+import { ButtonProps } from './Button'
+
+export const Button: FC<ButtonProps & LinkProps> = (props) => {
+    const { src, href, children, onClick, style } = props
+    if (src)
+        return (
+            <LinkS to={src}>
+                <StyledButton onClick={onClick}>{children}</StyledButton>
+            </LinkS>
+        )
+    return (
+        <LinkR href={href || ''} passHref>
+            <StyledButton onClick={onClick} style={style}>
+                {children}
+            </StyledButton>
+        </LinkR>
+    )
+}

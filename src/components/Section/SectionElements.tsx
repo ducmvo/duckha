@@ -18,9 +18,9 @@ export const ContainerSkew = styled(Container)`
 
 export const Title = styled.div`
     background: transparent;
-    font-family: 'HighSpirited';
-    font-size: clamp(3.5rem, 8vw, 5.25rem);
-    font-weight: 800;
+    font-family: 'Ballet', cursive;
+    font-size: clamp(5rem, 5vw, 3rem);
+    /* font-weight: bold; */
     margin-bottom: 16px;
 `
 
@@ -31,11 +31,14 @@ export const Content = styled.div<SectionProps>`
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    font-size: 1.3rem;
     @media (max-width: 768px) {
+        font-size: 1.2rem;
         padding: ${({ noPadding }) => (noPadding ? '0' : '0 4rem')};
     }
 
     @media (max-width: 500px) {
+        font-size: 1.1rem;
         padding: ${({ noPadding }) => (noPadding ? '0' : '0 3rem')};
     }
 `

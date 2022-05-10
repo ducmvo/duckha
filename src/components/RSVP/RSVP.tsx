@@ -8,12 +8,12 @@ import Reception from './Reception'
 import {
     AttendLabel,
     Container,
-    FormButton,
     FormWrap,
     GuestAttendanceForm,
     GuestInputTextArea,
     Message,
 } from './RSVPElements'
+import FormButton from '@components/Button'
 
 type IAttendance = {
     [id: number]: User
@@ -85,10 +85,9 @@ const RSVP = () => {
         <Container>
             {(user && (
                 <FormWrap>
-                    {message && <Message error={error}>{message}</Message>}
                     <Reception />
                     <Attire />
-
+                    {message && <Message error={error}>{message}</Message>}
                     <GuestAttendanceForm>
                         <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
                         <Attendant
@@ -115,9 +114,13 @@ const RSVP = () => {
                                 handleUserInput(user.id, e.target.value, e)
                             }
                         />
-
-                        <FormButton onClick={handleSave}>Save</FormButton>
                     </GuestAttendanceForm>
+                    <FormButton
+                        onClick={handleSave}
+                        style={{ fontFamily: 'URWGothic' }}
+                    >
+                        Save
+                    </FormButton>
                 </FormWrap>
             )) || <Login setUser={setUser} />}
         </Container>

@@ -3,7 +3,6 @@ import { AUTH_USER_NAME } from '@libs/data'
 import { FC, useCallback, useEffect, useState } from 'react'
 import {
     Form,
-    FormButton,
     FormContent,
     FormInput,
     FormLabel,
@@ -11,6 +10,8 @@ import {
     FormWrap,
     NotFound,
 } from './RSVPElements'
+import FormButton from '@components/Button'
+
 type LoginProps = {
     setUser: any
 }
@@ -86,7 +87,12 @@ const Login: FC<LoginProps> = (props) => {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
-                        <FormButton>Continue</FormButton>
+                        <FormButton
+                            onClick={handleSubmit}
+                            style={{ fontFamily: 'URWGothic' }}
+                        >
+                            Continue
+                        </FormButton>
                     </Form>
                 </FormContent>
             </FormWrap>

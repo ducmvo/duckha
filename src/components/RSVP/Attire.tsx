@@ -4,10 +4,10 @@ import { RSVPInfo, RSVPTitle, RSVPContent } from './RSVPElements'
 const Attire = () => {
     return (
         <RSVPInfo>
-            <RSVPTitle>Dress code</RSVPTitle>
+            <RSVPTitle>Attire</RSVPTitle>
             <RSVPContent>
                 <RSVPContent>Semi-Formal</RSVPContent>
-                <RSVPContent style={{ fontSize: '0.6rem' }}>
+                <RSVPContent style={{ fontSize: '0.8rem' }}>
                     (AKA Dressy Casual, or Cocktail)
                 </RSVPContent>
             </RSVPContent>

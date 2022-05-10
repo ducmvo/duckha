@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { BigDay, months, days } from '@libs/data'
-import { BigDate, Names, RSVPButton, Section, Location } from './HeroElements'
+import { BigDay, months, days, names, location } from '@libs/data'
+import { BigDate, Names, Section, Location } from './HeroElements'
+import RSVPButton from '@components/Button'
 
 const Hero = () => {
     const [scrollNav, setScrollNav] = useState(false)
@@ -18,11 +19,12 @@ const Hero = () => {
 
     return (
         <Section scroll={scrollNav}>
-            <Names>Duc & Kha</Names>
+            <Names>{names}</Names>
             <BigDate>
-                {day} {month} {date}, {year}
+                {month} {date}, {year}
             </BigDate>
-            <Location>Hue, Vietnam</Location>
+
+            <Location>{location}</Location>
             <RSVPButton href="/rsvp">RSVP</RSVPButton>
         </Section>
     )

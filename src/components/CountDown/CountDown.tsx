@@ -35,8 +35,6 @@ const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
             <CountDownLabel>{hours > 1 ? 'HOURS' : 'HOUR'}</CountDownLabel>
             <CountDownElement>{minutes}</CountDownElement>
             <CountDownLabel>{minutes > 1 ? 'MINS' : 'MIN'}</CountDownLabel>
-            <CountDownElement>{seconds}</CountDownElement>
-            <CountDownLabel>{seconds > 1 ? 'SECS' : 'SEC'}</CountDownLabel>
         </CountDownWrapper>
     )
 }

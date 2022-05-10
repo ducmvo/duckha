@@ -3,9 +3,6 @@ import React from 'react'
 const fonts = () => {
     return (
         <div style={{ padding: 50 }}>
-            <div style={{ fontSize: '3rem', fontFamily: 'BemboStd' }}>
-                BemboStd
-            </div>
             <div style={{ fontSize: '5rem', fontFamily: 'HighSpirited' }}>
                 HighSpirited
             </div>

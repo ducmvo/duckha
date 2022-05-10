@@ -16,63 +16,42 @@ export const Section = styled.div<HeroProps>`
     justify-content: center;
     flex-direction: column;
     gap: 0.2rem;
-    transition: all 0.2s ease-in;
     color: ${({ theme }) => theme.colors.text};
-    /* opacity: ${({ scroll }) => (scroll ? 0 : 1)}; */
 `
 
 export const Names = styled.div<HeroProps>`
     font-family: 'HighSpirited';
-    font-size: 6rem;
+    font-size: clamp(0.5rem, 19vw, 8rem);
     margin-bottom: 1rem;
-    min-width: 300px;
-    transition: all 0.2s ease-in;
-
-    @media screen and (min-width: 560px) {
-        font-size: 6rem;
-    }
-    @media screen and (max-width: 560px) {
-        font-size: 4rem;
-    }
-    @media screen and (max-width: 380px) {
-        font-size: 3.8rem;
-    }
 `
 export const BigDate = styled.div<HeroProps>`
     font-family: inherit;
-    font-size: 1rem;
+    font-size: clamp(0.5rem, 5vw, 1.5rem);
     letter-spacing: 0.1rem;
-    transition: all 0.2s ease;
-    @media screen and (max-width: 530px) {
-        font-size: 0.8rem;
-    }
+    text-transform: uppercase;
 `
 export const Location = styled.div<HeroProps>`
     font-family: inherit;
-    font-size: 1rem;
+    font-size: clamp(0.5rem, 5vw, 1.5rem);
     letter-spacing: 0.1rem;
-    @media screen and (max-width: 530px) {
-        font-size: 0.8rem;
-    }
 `
 
-export const StyledRSVPButton = styled.button<HeroProps>`
+export const StyledRSVPButton = styled.div<HeroProps>`
     font-family: inherit;
     margin: 0.5rem 0;
     text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-    width: 100px;
+    text-align: center;
+    font-size: clamp(0.5rem, 5vw, 1.5rem);
+    letter-spacing: 0.2rem;
     padding: 0.5rem 1rem;
     border: 1px solid ${({ theme }) => theme.colors.text};
+    box-shadow: 2px 3px 6px #b0b0b0;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
     &:hover {
         background-color: ${({ theme }) => theme.colors.text};
         color: ${({ theme }) => theme.colors.white};
-    }
-
-    @media screen and (max-width: 530px) {
-        font-size: 0.8rem;
+        box-shadow: 5px 5px 15px #808080;
     }
 `
 
