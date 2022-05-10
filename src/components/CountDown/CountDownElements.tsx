@@ -6,10 +6,10 @@ export const CountDownWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
         flex-direction: column;
     }
+    padding: 150px 0;
 `
 export const CountDownElement = styled.div`
     background-color: inherit;
@@ -25,7 +25,7 @@ export const CountDownLabel = styled(CountDownElement)`
     letter-spacing: 0.2rem;
     padding-top: 18px;
     padding-right: 2rem;
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
         padding: 0;
     }
 `
