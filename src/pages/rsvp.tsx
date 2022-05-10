@@ -7,6 +7,7 @@ import useToggle from '@hooks/useToggle'
 import Footer from '@components/Footer'
 
 import dynamic from 'next/dynamic'
+import Sidebar from '@components/Sidebar'
 const PleaseReply = dynamic(() => import('@components/RSVP'), {
     ssr: false,
 })
@@ -20,6 +21,7 @@ const RSVP = () => {
                 <title>Duc & Kha | RSVP</title>
             </Head>
             <Navbar toggleSideBar={toggleSideBar} display={true} />
+            <Sidebar isOpen={isOpen} toggleSideBar={toggleSideBar} />
             <ScrollToTop />
             <PleaseReply />
             <Footer />
