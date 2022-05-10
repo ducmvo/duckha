@@ -55,11 +55,19 @@ const RSVP = () => {
             companions: companions,
         }
 
+        const analytic = Object.values(attendance).map((user) => [
+            user.name,
+            user.attend,
+            user.request,
+        ])
+
+        console.log(JSON.stringify(analytic))
+
         gtag.event({
             action: 'save_rsvp',
             category: 'RSVP',
             label: 'rsvp_response',
-            value: JSON.stringify(attendance),
+            value: JSON.stringify(analytic),
         })
 
         let res = await fetch(url, {
