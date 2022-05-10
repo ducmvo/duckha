@@ -5,8 +5,8 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
-    padding: 5rem 0;
 `
 
 export const FormWrap = styled.div`
@@ -15,6 +15,7 @@ export const FormWrap = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0 0 150px 0;
 `
 
 export const FormTitle = styled.h1`
@@ -76,12 +77,14 @@ export const RSVPInfo = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    background: inherit;
 `
 
 export const RSVPTitle = styled.div`
     font-size: min(2.5rem, 15vw);
     font-family: 'Ballet';
     padding: 0.2rem;
+    background: inherit;
 `
 
 export const RSVPContent = styled.div`
@@ -91,6 +94,7 @@ export const RSVPContent = styled.div`
     padding-bottom: 0.2rem;
     text-transform: uppercase;
     text-align: center;
+    background: inherit;
 `
 
 export const GuestAttendanceForm = styled.form`

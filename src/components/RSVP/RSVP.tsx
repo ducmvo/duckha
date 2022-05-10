@@ -1,3 +1,5 @@
+import FormButton from '@components/Button'
+import Section from '@components/Section'
 import { User as PUser } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
 import { animateScroll as scroll } from 'react-scroll'
@@ -12,8 +14,8 @@ import {
     GuestAttendanceForm,
     GuestInputTextArea,
     Message,
+    RSVPTitle,
 } from './RSVPElements'
-import FormButton from '@components/Button'
 
 type IAttendance = {
     [id: number]: User
@@ -84,45 +86,52 @@ const RSVP = () => {
     return (
         <Container>
             {(user && (
-                <FormWrap>
-                    <Reception />
-                    <Attire />
-                    {message && <Message error={error}>{message}</Message>}
-                    <GuestAttendanceForm>
-                        <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
-                        <Attendant
-                            attendance={attendance}
-                            handleUserInput={handleUserInput}
-                            user={user}
-                        />
-
-                        {user.companions.map((guest) => (
+                <Section noPadding>
+                    <FormWrap>
+                        <RSVPTitle>Rsvp</RSVPTitle>
+                        {message && <Message error={error}>{message}</Message>}
+                        <GuestAttendanceForm>
+                            <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
                             <Attendant
-                                key={guest.id}
                                 attendance={attendance}
                                 handleUserInput={handleUserInput}
-                                user={guest}
+                                user={user}
                             />
-                        ))}
 
-                        <AttendLabel>SPECIAL REQUEST?</AttendLabel>
-                        <GuestInputTextArea
-                            id="request"
-                            rows={4}
-                            value={attendance[user.id]?.request || ''}
-                            onChange={(e: any) =>
-                                handleUserInput(user.id, e.target.value, e)
-                            }
-                        />
-                    </GuestAttendanceForm>
-                    <FormButton
-                        onClick={handleSave}
-                        style={{ fontFamily: 'URWGothic' }}
-                    >
-                        Save
-                    </FormButton>
-                </FormWrap>
+                            {user.companions.map((guest) => (
+                                <Attendant
+                                    key={guest.id}
+                                    attendance={attendance}
+                                    handleUserInput={handleUserInput}
+                                    user={guest}
+                                />
+                            ))}
+
+                            <AttendLabel>SPECIAL REQUEST?</AttendLabel>
+                            <GuestInputTextArea
+                                id="request"
+                                rows={4}
+                                value={attendance[user.id]?.request || ''}
+                                onChange={(e: any) =>
+                                    handleUserInput(user.id, e.target.value, e)
+                                }
+                            />
+                        </GuestAttendanceForm>
+                        <FormButton
+                            onClick={handleSave}
+                            style={{ fontFamily: 'URWGothic' }}
+                        >
+                            Save
+                        </FormButton>
+                    </FormWrap>
+                </Section>
             )) || <Login setUser={setUser} />}
+            <Section skew>
+                <Reception />
+            </Section>
+            <Section>
+                <Attire />
+            </Section>
         </Container>
     )
 }

@@ -4,6 +4,7 @@ import { SectionProps } from './Section'
 
 export const Container = styled.div<SectionProps>`
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     padding: ${({ noPadding }) => (noPadding ? '0' : '150px 0')};

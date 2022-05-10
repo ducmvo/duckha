@@ -78,7 +78,7 @@ const Footer = () => {
 						</WebsiteRights> */}
                         <SocialIcons>
                             <SocialIconLink
-                                href="//www.facebook/duckha2022"
+                                href="//www.facebook.com/duckha2022"
                                 target="_blank"
                                 arial-label="Facebook"
                             >

@@ -31,3 +31,6 @@ export const SectionWrap = styled.div`
         padding: 0 3rem;
     }
 `
+export const Text = styled.p`
+    background: inherit;
+`

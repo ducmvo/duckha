@@ -8,6 +8,7 @@ import { useToggle } from '@hooks'
 import Footer from '@components/Footer'
 import Info from '@components/Info'
 import CountDown from '@components/CountDown'
+import { sectionID } from '@libs/data'
 
 const Home: NextPage = () => {
     const [isOpen, setIsOpen] = useToggle(false)
@@ -21,8 +22,8 @@ const Home: NextPage = () => {
             <Navbar toggleSideBar={toggleSideBar} />
             <Hero />
             <CountDown />
-            <Info id="info" />
-            <Story id="story" />
+            <Info id={sectionID[0]} />
+            <Story id={sectionID[1]} />
             <Footer />
         </>
     )
