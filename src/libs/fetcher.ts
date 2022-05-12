@@ -3,6 +3,10 @@ import { User } from '@prisma/client'
 const fetcher = async (...args: [string, any]) => {
     return fetch(...args).then((res) => res.json())
 }
+export const sleep = async (time: number): Promise<any> => {
+    const promise = new Promise((rs) => setTimeout(rs, time))
+    return promise
+}
 
 export const uploadImage = async (image: any, user: User) => {
     const url = '/api/image'

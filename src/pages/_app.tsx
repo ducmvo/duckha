@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { pageview } from '@libs/gtag'
 import GoogleAnalytics from '@components/Analytics'
+import AuthProvider from '@components/HOC/AuthContext'
 
 const App = (props: AppProps) => {
     const router = useRouter()
@@ -30,9 +31,11 @@ const App = (props: AppProps) => {
             <GoogleAnalytics />
             <GlobalStyle />
             <ThemeProvider theme={theme}>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+                <AuthProvider>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </AuthProvider>
             </ThemeProvider>
         </>
     )

@@ -14,59 +14,25 @@ import FormButton from '@components/Button'
 import Section from '@components/Section'
 import Loading from '@components/Loading'
 import * as gtag from '@libs/gtag'
+import useAuth from '@hooks/useAuth'
 
-type LoginProps = {
-    setUser: any
-}
+type LoginProps = {}
 
 const Login: FC<LoginProps> = (props) => {
-    const { setUser } = props
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [name, setName] = useState('')
-    const [username, setUsername] = useSessionStorage<string>(
-        AUTH_USER_NAME,
-        ''
-    )
-    const handleSignIn = useCallback(
-        async (name: string) => {
-            setLoading(true)
-            let url = '/api/user'
-            const data = { name: name }
-            let res = await fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(data),
-            })
-
-            try {
-                const user = await res.json()
-                setUser(user)
-                setError(false)
-            } catch (err) {
-                setError(true)
-            }
-            setLoading(false)
-        },
-        [setUser]
-    )
-
-    useEffect(() => {
-        if (username) {
-            setName(username)
-            handleSignIn(username)
-        }
-    }, [username, handleSignIn])
+    const { user, signIn } = useAuth()
 
     const handleSubmit = async () => {
         if (!name) return
-        if (!username) setUsername(name)
         gtag.event({
             action: 'login_rsvp',
             category: 'RSVP',
             label: 'login',
             value: name.toLocaleUpperCase(),
         })
-        await handleSignIn(name)
+        await signIn(name)
     }
 
     return (

@@ -1,6 +1,7 @@
 import FormButton from '@components/Button'
 import GuestImage from '@components/Image'
 import Section from '@components/Section'
+import { useUser } from '@hooks/useAuth'
 import { rsvp, sectionRSVP } from '@libs/data'
 import * as gtag from '@libs/gtag'
 import { User as PUser } from '@prisma/client'
@@ -29,7 +30,9 @@ type User = PUser & {
 }
 
 const RSVP = () => {
-    const [user, setUser] = useState<User>()
+    // const [user, setUser] = useState<User>()
+    const user = useUser()
+
     const [error, setError] = useState(false)
     const [message, setMessage] = useState('')
     const [attendance, setAttendance] = useState<IAttendance>({})
@@ -37,10 +40,10 @@ const RSVP = () => {
     useEffect(() => {
         if (!user) return
         const hashMap: IAttendance = {}
-        hashMap[user.id] = user
-        user.companions.forEach((companion: User) => {
-            hashMap[companion.id] = companion
-        })
+        // hashMap[user.id] = user
+        // user.companions.forEach((companion: User) => {
+        //     hashMap[companion.id] = companion
+        // })
         setAttendance(hashMap)
     }, [user])
 
@@ -100,7 +103,7 @@ const RSVP = () => {
         })
     }
 
-    if (!user) return <Login setUser={setUser} />
+    if (!user) return <Login />
 
     return (
         <Container>
@@ -116,14 +119,14 @@ const RSVP = () => {
                             user={user}
                         />
 
-                        {user.companions.map((guest) => (
+                        {/* {user.companions.map((guest) => (
                             <Attendant
                                 key={guest.id}
                                 attendance={attendance}
                                 handleUserInput={handleUserInput}
                                 user={guest}
                             />
-                        ))}
+                        ))} */}
 
                         <AttendLabel>{rsvp[1]}</AttendLabel>
                         <GuestInputTextArea
