@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const LayoutContainer = styled.div`
     display: flex;
     justify-content: center;
+    background: ${({ theme }) => theme.colors.bg};
 `
 
 export const LayoutContent = styled.div`

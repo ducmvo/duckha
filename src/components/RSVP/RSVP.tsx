@@ -1,5 +1,7 @@
 import FormButton from '@components/Button'
+import GuestImage from '@components/Image'
 import Section from '@components/Section'
+import * as gtag from '@libs/gtag'
 import { User as PUser } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
 import { animateScroll as scroll } from 'react-scroll'
@@ -16,7 +18,6 @@ import {
     Message,
     RSVPTitle,
 } from './RSVPElements'
-import * as gtag from '@libs/gtag'
 
 type IAttendance = {
     [id: number]: User
@@ -147,8 +148,13 @@ const RSVP = () => {
             <Section skew>
                 <Reception />
             </Section>
+
             <Section>
                 <Attire />
+            </Section>
+
+            <Section skew>
+                <GuestImage user={user} />
             </Section>
         </Container>
     )

@@ -1,8 +1,10 @@
+import { User } from '@prisma/client'
+
 const fetcher = async (...args: [string, any]) => {
     return fetch(...args).then((res) => res.json())
 }
 
-export const uploadImage = async (image: any, userId: number) => {
+export const uploadImage = async (image: any, user: User) => {
     const url = '/api/image'
     // Get S3 secured upload URL
     let res = await fetch(url)
@@ -19,7 +21,7 @@ export const uploadImage = async (image: any, userId: number) => {
 
     // save uploaded Image to database
     const img = imgUrl.split('?')[0]
-    const data = { imgUrl: img, userId: userId }
+    const data = { imgUrl: img, user: user }
     res = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(data),

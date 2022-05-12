@@ -42,6 +42,7 @@ export const Content = styled.div<SectionProps>`
         font-size: 1.1rem;
         padding: ${({ noPadding }) => (noPadding ? '0' : '0 3rem')};
     }
+    flex: 1;
 `
 export const ContentSkew = styled(Content)`
     transform: skewY(11.5deg);

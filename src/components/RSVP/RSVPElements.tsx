@@ -46,14 +46,19 @@ export const FormLabel = styled.label`
 export const FormInput = styled.input`
     width: 100%;
     min-width: 250px;
-
     margin: 0.5rem 0;
     padding: 0.3rem 0.3rem;
     font-size: 1.5rem;
     border: 1px solid ${({ theme }) => theme.colors.text};
+    background: inherit;
+
+    &[type='file'] {
+        font-size: 1.2rem;
+    }
 
     &:focus {
         outline-color: ${({ theme }) => theme.colors.text};
+        background: whitesmoke;
     }
 `
 export const FormButton = styled(Button)``
@@ -117,8 +122,10 @@ export const GuestInput = styled.input`
     padding: 0.3rem 0.3rem;
     font-size: min(1rem, 10vw);
     border: 1px solid ${({ theme }) => theme.colors.text};
+    background: inherit;
     &:focus {
         outline-color: ${({ theme }) => theme.colors.text};
+        background: whitesmoke;
     }
     /* &[type='radio']:checked:before {
         content: '';
@@ -137,8 +144,10 @@ export const GuestInputTextArea = styled.textarea`
     padding: 0.3rem 0.3rem;
     font-size: min(1rem, 10vw);
     border: 1px solid ${({ theme }) => theme.colors.text};
+    background: inherit;
     &:focus {
         outline-color: ${({ theme }) => theme.colors.text};
+        background: whitesmoke;
     }
 `
 export const GuestInputText = styled.span`
@@ -156,8 +165,9 @@ export const Message = styled.div`
     color: white;
     height: 50px;
     padding: 0.7rem;
+    margin: 1rem;
     text-align: center;
-    width: min(300px, 80vh);
+    width: 100%;
     font-family: 'URWGothic';
     font-size: 0.8rem;
     text-transform: uppercase;

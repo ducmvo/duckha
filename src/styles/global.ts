@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { theme } from './theme'
 const GlobalStyle = createGlobalStyle`
 	@font-face {
 		font-family: 'URWGothic';
@@ -22,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Cormorant Garamond', serif;
 		font-weight: 500;
 		font-style: normal;
-		background: ${() => theme.colors.bg};
 	}
 	
 `

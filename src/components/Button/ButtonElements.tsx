@@ -1,15 +1,16 @@
-import styled from 'styled-components'
-import LinkR from 'next/link'
-import { Link as LinkS } from 'react-scroll'
 import { LinkProps } from '@type/Link'
+import LinkR from 'next/link'
 import { FC } from 'react'
+import { Link as LinkS } from 'react-scroll'
+import styled from 'styled-components'
+import { ButtonProps } from './Button'
 
 export const StyledButton = styled.div`
     font-family: inherit;
     margin: 0.5rem 0;
     text-transform: uppercase;
     text-align: center;
-    font-size: clamp(0.5rem, 5vw, 1.5rem);
+    font-size: clamp(0.5rem, 5vw, 1rem);
     letter-spacing: 0.2rem;
     padding: 0.5rem 1rem;
     border: 1px solid ${({ theme }) => theme.colors.text};
@@ -22,8 +23,6 @@ export const StyledButton = styled.div`
         box-shadow: 5px 5px 15px #808080;
     }
 `
-
-import { ButtonProps } from './Button'
 
 export const Button: FC<ButtonProps & LinkProps> = (props) => {
     const { src, href, children, onClick, style } = props
