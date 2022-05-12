@@ -62,8 +62,6 @@ const RSVP = () => {
             user.request,
         ])
 
-        console.log(JSON.stringify(analytic))
-
         gtag.event({
             action: 'save_rsvp',
             category: 'RSVP',

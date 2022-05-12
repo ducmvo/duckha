@@ -17,7 +17,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<User[]>) => {
         }
     }
     const users = await prisma.user.findMany()
-    console.log('USERS', users)
     res.status(200).json(users)
 }
 export default handler

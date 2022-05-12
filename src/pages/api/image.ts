@@ -27,7 +27,6 @@ const handler = async (
         }
 
         const image = await prisma.image.create({ data: imageInput })
-        console.log('[SERVER: CREATE IMAGE]', image)
         // TODO: save this url to data base associate with user
         res.status(200).json({
             message: 'file upload successfully',

@@ -20,7 +20,6 @@ const Gallery: FC<GalleryProps> = (props) => {
             }),
         }
         const { images } = await fetch(url, params).then((res) => res.json())
-        console.log('[GET IMAGES]', images)
         setImages(images)
     }, [user])
 
