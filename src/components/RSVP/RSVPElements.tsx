@@ -174,3 +174,17 @@ export const Message = styled.div`
     background-color: ${({ theme, error }: { theme: any; error: boolean }) =>
         error ? theme.colors.primary : theme.colors.green};
 `
+
+export const AttireColor = styled.span`
+    height: 2.5rem;
+    aspect-ratio: 1/1;
+    background-color: ${({ color }) => color};
+    border-radius: 50%;
+    margin: 0.3rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    &:hover {
+        transform: scale(1.2, 1.2);
+    }
+`
