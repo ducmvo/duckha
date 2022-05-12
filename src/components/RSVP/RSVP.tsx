@@ -1,6 +1,7 @@
 import FormButton from '@components/Button'
 import GuestImage from '@components/Image'
 import Section from '@components/Section'
+import { rsvp, sectionRSVP } from '@libs/data'
 import * as gtag from '@libs/gtag'
 import { User as PUser } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
@@ -103,12 +104,12 @@ const RSVP = () => {
 
     return (
         <Container>
-            <Section noPadding>
+            <Section noPadding id={sectionRSVP[0]}>
                 <FormWrap>
-                    <RSVPTitle>Rsvp</RSVPTitle>
+                    <RSVPTitle>{sectionRSVP[0]}</RSVPTitle>
                     {message && <Message error={error}>{message}</Message>}
                     <GuestAttendanceForm>
-                        <AttendLabel>ARE YOU ABLE TO ATTEND?</AttendLabel>
+                        <AttendLabel>{rsvp[0]}</AttendLabel>
                         <Attendant
                             attendance={attendance}
                             handleUserInput={handleUserInput}
@@ -124,7 +125,7 @@ const RSVP = () => {
                             />
                         ))}
 
-                        <AttendLabel>SPECIAL REQUEST?</AttendLabel>
+                        <AttendLabel>{rsvp[1]}</AttendLabel>
                         <GuestInputTextArea
                             id="request"
                             rows={4}
@@ -143,15 +144,15 @@ const RSVP = () => {
                 </FormWrap>
             </Section>
 
-            <Section skew>
+            <Section skew id={sectionRSVP[1]}>
                 <Reception />
             </Section>
 
-            <Section>
+            <Section id={sectionRSVP[2]}>
                 <Attire />
             </Section>
 
-            <Section skew>
+            <Section skew id={sectionRSVP[3]}>
                 <GuestImage user={user} />
             </Section>
         </Container>

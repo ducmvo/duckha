@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Section from '@components/Section'
-import { info, sectionID } from '@libs/data'
+import { info, sectionHome } from '@libs/data'
 type InfoProps = {
     id?: string
 }

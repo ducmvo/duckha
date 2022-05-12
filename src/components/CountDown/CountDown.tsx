@@ -1,15 +1,12 @@
+import Render from '@components/HOC/Render'
 import Section from '@components/Section'
 import { BigDay } from '@libs/data'
-import dynamic from 'next/dynamic'
+import Countdown from 'react-countdown'
 import {
     CountDownElement,
     CountDownLabel,
     CountDownWrapper,
 } from './CountDownElements'
-
-const Countdown = dynamic(() => import('react-countdown'), {
-    ssr: false,
-})
 
 const MILI_SEC_PER_DAY = 1000 * 60 * 60 * 24
 
@@ -42,12 +39,14 @@ const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
 const CountDown = () => {
     return (
         <Section noPadding skew>
-            <Countdown
-                date={BigDay}
-                intervalDelay={1000}
-                precision={1000}
-                renderer={renderer}
-            />
+            <Render client>
+                <Countdown
+                    date={BigDay}
+                    intervalDelay={1000}
+                    precision={1000}
+                    renderer={renderer}
+                />
+            </Render>
         </Section>
     )
 }

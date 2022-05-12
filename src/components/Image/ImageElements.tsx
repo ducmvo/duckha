@@ -22,3 +22,9 @@ export const GalleryImg = styled.div`
         z-index: 9;
     }
 `
+export const GuestImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`

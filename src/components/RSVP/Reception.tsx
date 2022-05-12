@@ -1,4 +1,4 @@
-import { BigDay, days, months } from '@libs/data'
+import { BigDay, days, hall, months, sectionRSVP, venue } from '@libs/data'
 import { RSVPContent, RSVPInfo, RSVPTitle } from './RSVPElements'
 
 const Reception = () => {
@@ -12,11 +12,11 @@ const Reception = () => {
     }`
     return (
         <RSVPInfo>
-            <RSVPTitle>Reception</RSVPTitle>
+            <RSVPTitle>{sectionRSVP[1]}</RSVPTitle>
             <RSVPContent>{date}</RSVPContent>
             <RSVPContent>{hour}</RSVPContent>
-            <RSVPContent>VinPearl Hotel Hue</RSVPContent>
-            <RSVPContent>Dragon Theater</RSVPContent>
+            <RSVPContent>{venue}</RSVPContent>
+            <RSVPContent>{hall}</RSVPContent>
         </RSVPInfo>
     )
 }

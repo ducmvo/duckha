@@ -93,6 +93,7 @@ const StyledSidebarRoute = styled.div`
     border-radius: 50px;
     letter-spacing: 0.3rem;
     transition: all 0.2s ease-in;
+    background: ${({ theme }) => theme.colors.bg};
     cursor: pointer;
 
     &:hover {

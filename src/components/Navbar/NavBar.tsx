@@ -14,15 +14,21 @@ import {
     NavMenu,
 } from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll'
-import { sectionID, nameTag } from '@libs/data'
+import { sectionHome, nameTag } from '@libs/data'
+import { useRouter } from 'next/router'
 
 type NavbarProps = {
     toggleSideBar: () => void
     display?: boolean
+    section?: string[]
 }
 const Navbar: FC<NavbarProps> = (props) => {
-    const { toggleSideBar, display = false } = props
-    const [scrollNav, setScrollNav] = useState(false)
+    const { toggleSideBar, section = [] } = props
+    const [scrollNav, setScrollNav] = useState(true)
+    const router = useRouter()
+
+    let display = false
+    if (router.pathname !== '/') display = true
 
     const changeNav = () => setScrollNav(window.scrollY >= 200 ? true : false)
 
@@ -46,52 +52,21 @@ const Navbar: FC<NavbarProps> = (props) => {
                     <FaBars />
                 </MobileIcon>
 
-                {!display && (
-                    <NavMenu>
-                        {sectionID.map((s, i) => (
-                            <NavLinks
-                                key={i}
-                                to={s}
-                                smooth={true}
-                                duration={500}
-                                spy={true}
-                                offset={-80}
-                            >
-                                {s}
-                            </NavLinks>
-                        ))}
-
-                        {/* <NavLinks
-                            to={sectionID[1]}
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            {sectionID[1]}
-                        </NavLinks>
-
+                <NavMenu>
+                    {section.map((s, i) => (
                         <NavLinks
-                            to={sectionID[2]}
+                            key={i}
+                            to={s}
                             smooth={true}
                             duration={500}
                             spy={true}
                             offset={-80}
                         >
-                            {sectionID[2]}
+                            {s}
                         </NavLinks>
+                    ))}
+                </NavMenu>
 
-                        <NavLinks
-                            to={sectionID[3]}
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            {sectionID[3]}
-                        </NavLinks> */}
-                    </NavMenu>
-                )}
                 <NavBtn>
                     <NavBtnLink href="/rsvp">RSVP</NavBtnLink>
                 </NavBtn>

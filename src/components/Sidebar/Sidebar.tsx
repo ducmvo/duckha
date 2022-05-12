@@ -1,4 +1,4 @@
-import { sectionID } from '@libs/data'
+import { sectionHome } from '@libs/data'
 import React, { FC } from 'react'
 import {
     SidebarContainer,
@@ -14,9 +14,10 @@ import {
 type SidebarProps = {
     toggleSideBar: () => void
     isOpen: boolean
+    section?: string[]
 }
 const Sidebar: FC<SidebarProps> = (props) => {
-    const { toggleSideBar, isOpen } = props
+    const { toggleSideBar, isOpen, section = [] } = props
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggleSideBar}>
             <Icon onClick={toggleSideBar}>
@@ -25,8 +26,16 @@ const Sidebar: FC<SidebarProps> = (props) => {
 
             <SidebarWrapper>
                 <SidebarMenu>
-                    {sectionID.map((s, i) => (
-                        <SidebarLink key={i} to={s} onClick={toggleSideBar}>
+                    {section.map((s, i) => (
+                        <SidebarLink
+                            key={i}
+                            to={s}
+                            smooth={true}
+                            duration={800}
+                            spy={true}
+                            offset={-80}
+                            onClick={toggleSideBar}
+                        >
                             {s}
                         </SidebarLink>
                     ))}

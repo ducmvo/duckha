@@ -1,22 +1,21 @@
+import { attire, attireColors, sectionRSVP } from '@libs/data'
 import React from 'react'
 import { AttireColor, RSVPContent, RSVPInfo, RSVPTitle } from './RSVPElements'
 
 const Attire = () => {
     return (
         <RSVPInfo>
-            <RSVPTitle>Attire</RSVPTitle>
+            <RSVPTitle>{sectionRSVP[2]}</RSVPTitle>
             <RSVPContent>
-                <RSVPContent>Semi-Formal</RSVPContent>
+                <RSVPContent>{attire[0]}</RSVPContent>
                 <RSVPContent style={{ fontSize: '0.8rem' }}>
-                    (AKA Dressy Casual, or Cocktail)
+                    {attire[1]}
                 </RSVPContent>
                 <br />
                 <RSVPContent>
-                    <AttireColor color="#d6b6a7"></AttireColor>
-                    <AttireColor color="#cbab9e"></AttireColor>
-                    <AttireColor color="#58765e"></AttireColor>
-                    <AttireColor color="#d78241"></AttireColor>
-                    <AttireColor color="#a54400"></AttireColor>
+                    {attireColors.map((color, i) => (
+                        <AttireColor key={i} color={color}></AttireColor>
+                    ))}
                 </RSVPContent>
             </RSVPContent>
         </RSVPInfo>

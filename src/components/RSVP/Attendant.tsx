@@ -1,3 +1,4 @@
+import { rsvp } from '@libs/data'
 import { User } from '@prisma/client'
 import { FC } from 'react'
 import {
@@ -36,7 +37,7 @@ const Attendant: FC<AttendantProps> = (props) => {
                     checked={attendance[user.id]?.attend === true}
                     onChange={(e) => handleUserInput(user.id, true, e)}
                 />
-                <GuestInputText>Will attend</GuestInputText>
+                <GuestInputText>{rsvp[2]}</GuestInputText>
             </InputLabel>
 
             <InputLabel>
@@ -46,7 +47,7 @@ const Attendant: FC<AttendantProps> = (props) => {
                     checked={attendance[user.id]?.attend === false}
                     onChange={(e) => handleUserInput(user.id, false, e)}
                 />
-                <GuestInputText>Declines With regret</GuestInputText>
+                <GuestInputText>{rsvp[3]}</GuestInputText>
             </InputLabel>
         </Companions>
     )
