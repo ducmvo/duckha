@@ -5,9 +5,10 @@ import React, { FC, useCallback, useEffect, useState } from 'react'
 import { GalleryContainer, GalleryImg } from './ImageElements'
 type GalleryProps = {
     user: User
+    imageUrl?: string
 }
 const Gallery: FC<GalleryProps> = (props) => {
-    const { user } = props
+    const { user, imageUrl } = props
 
     const [images, setImages] = useState<Image[]>([])
 
@@ -21,7 +22,8 @@ const Gallery: FC<GalleryProps> = (props) => {
         }
         const { images } = await fetch(url, params).then((res) => res.json())
         setImages(images)
-    }, [user])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user, imageUrl])
 
     useEffect(() => {
         if (!user) return

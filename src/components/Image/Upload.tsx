@@ -13,13 +13,14 @@ import React, { FC, useState } from 'react'
 
 type UploadProps = {
     user: User
+    setImageUrl?: any
 }
 
 const Upload: FC<UploadProps> = (props) => {
-    const { user } = props
+    const { user, setImageUrl } = props
     const [image, setImage] = useState<File>()
     const [imageName, setImageName] = useState<string>('')
-    const [imageUrl, setImageUrl] = useState()
+
     const [error, setError] = useState(false)
     const [message, setMessage] = useState<string>()
     const [loading, setLoading] = useState(false)
