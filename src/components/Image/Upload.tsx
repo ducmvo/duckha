@@ -1,24 +1,19 @@
 import Button from '@components/Button'
 import Loading from '@components/Loading'
-import {
-    Form,
-    FormInput,
-    FormWrap,
-    Message,
-} from '@components/RSVP/RSVPElements'
+import { FormInput, FormWrap, Message } from '@components/RSVP/RSVPElements'
+import { useUser } from '@hooks/useAuth'
 import { uploadImage } from '@libs/fetcher'
 import * as gtag from '@libs/gtag'
-import { User } from '@prisma/client'
 import React, { FC, useState } from 'react'
 import { FileUpload, FileUploadButton, UploadForm } from './ImageElements'
 
 type UploadProps = {
-    user: User
     setImageUrl?: any
 }
 
 const Upload: FC<UploadProps> = (props) => {
-    const { user, setImageUrl } = props
+    const { setImageUrl } = props
+    const user = useUser()
     const [image, setImage] = useState<File>()
     const [imageName, setImageName] = useState<string>('')
 
@@ -37,6 +32,7 @@ const Upload: FC<UploadProps> = (props) => {
     }
     const handleUpload = async (e: any) => {
         e.preventDefault()
+        if (!user) return
         setLoading(true)
         if (!image) {
             setError(true)

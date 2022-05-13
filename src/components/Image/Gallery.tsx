@@ -1,16 +1,16 @@
-import { RSVPContent, RSVPTitle } from '@components/RSVP/RSVPElements'
-import { Image, User } from '@prisma/client'
+import { useUser } from '@hooks/useAuth'
+import { Image } from '@prisma/client'
 import Img from 'next/image'
-import React, { FC, useCallback, useEffect, useState } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import { GalleryContainer, GalleryImg } from './ImageElements'
 type GalleryProps = {
-    user: User
     imageUrl?: string
+    images: Image[]
+    setImages: any
 }
 const Gallery: FC<GalleryProps> = (props) => {
-    const { user, imageUrl } = props
-
-    const [images, setImages] = useState<Image[]>([])
+    const { imageUrl, images, setImages } = props
+    const user = useUser()
 
     const getUserImages = useCallback(async () => {
         const url = '/api/images'
