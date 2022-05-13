@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { FaTimes } from 'react-icons/fa'
 
 export const GalleryContainer = styled.div`
     display: flex;
@@ -61,4 +62,10 @@ export const UploadForm = styled.form`
     justify-content: center;
     align-items: center;
     flex: 1;
+`
+
+export const CloseIcon = styled(FaTimes)`
+    color: ${({ theme }) => theme.colors.bg};
+    background: transparent;
+    font-size: 1.5rem;
 `

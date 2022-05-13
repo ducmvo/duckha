@@ -5,12 +5,14 @@ import React, { FC, useState } from 'react'
 import Gallery from './Gallery'
 import { GuestImageContainer } from './ImageElements'
 import Upload from './Upload'
+
 type GuestImageProps = {
     user: User
 }
 const GuestImage: FC<GuestImageProps> = (props) => {
     const [imageUrl, setImageUrl] = useState<string>()
     const [images, setImages] = useState<Image[]>([])
+
     return (
         <GuestImageContainer>
             <RSVPTitle>{sectionRSVP[3]}</RSVPTitle>

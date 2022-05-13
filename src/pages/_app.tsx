@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import { pageview } from '@libs/gtag'
 import GoogleAnalytics from '@components/Analytics'
 import AuthProvider from '@components/HOC/AuthContext'
+import BackdropProvider from '@components/HOC/BackdropContext'
 
 const App = (props: AppProps) => {
     const router = useRouter()
@@ -32,9 +33,11 @@ const App = (props: AppProps) => {
             <GlobalStyle />
             <ThemeProvider theme={theme}>
                 <AuthProvider>
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
+                    <BackdropProvider>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </BackdropProvider>
                 </AuthProvider>
             </ThemeProvider>
         </>
