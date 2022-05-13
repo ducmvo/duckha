@@ -16,6 +16,7 @@ import {
 import { animateScroll as scroll } from 'react-scroll'
 import { sectionHome, nameTag } from '@libs/data'
 import { useRouter } from 'next/router'
+import { useUser } from '@hooks/useAuth'
 
 type NavbarProps = {
     toggleSideBar: () => void
@@ -25,10 +26,18 @@ type NavbarProps = {
 const Navbar: FC<NavbarProps> = (props) => {
     const { toggleSideBar, section = [] } = props
     const [scrollNav, setScrollNav] = useState(true)
+    const [showMenuItems, setShowMenuItems] = useState(true)
     const router = useRouter()
+    const user = useUser()
 
     let display = false
     if (router.pathname !== '/') display = true
+    useEffect(() => {
+        if (router.pathname !== '/rsvp') setShowMenuItems(true)
+        else {
+            setShowMenuItems(!!user)
+        }
+    }, [user, router.pathname])
 
     const changeNav = () => setScrollNav(window.scrollY >= 200 ? true : false)
 
@@ -53,18 +62,19 @@ const Navbar: FC<NavbarProps> = (props) => {
                 </MobileIcon>
 
                 <NavMenu>
-                    {section.map((s, i) => (
-                        <NavLinks
-                            key={i}
-                            to={s}
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            offset={-80}
-                        >
-                            {s}
-                        </NavLinks>
-                    ))}
+                    {showMenuItems &&
+                        section.map((s, i) => (
+                            <NavLinks
+                                key={i}
+                                to={s}
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                offset={-80}
+                            >
+                                {s}
+                            </NavLinks>
+                        ))}
                 </NavMenu>
 
                 <NavBtn>
