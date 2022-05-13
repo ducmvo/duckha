@@ -15,7 +15,8 @@ export const FormWrap = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0 0 150px 0;
+    padding: 0 0 2rem 0;
+    width: 100%;
 `
 
 export const FormTitle = styled.h1`
@@ -53,7 +54,7 @@ export const FormInput = styled.input`
     background: inherit;
 
     &[type='file'] {
-        font-size: 1.2rem;
+        display: none;
     }
 
     &:focus {
@@ -61,6 +62,7 @@ export const FormInput = styled.input`
         background: whitesmoke;
     }
 `
+
 export const FormButton = styled(Button)``
 
 export const Text = styled.span`
@@ -87,7 +89,7 @@ export const RSVPInfo = styled.div`
 `
 
 export const RSVPTitle = styled.div`
-    font-size: min(2.5rem, 15vw);
+    font-size: min(3rem, 15vw);
     font-family: 'Ballet';
     padding: 0.2rem;
     background: inherit;
@@ -123,6 +125,7 @@ export const GuestInput = styled.input`
     font-size: min(1rem, 10vw);
     border: 1px solid ${({ theme }) => theme.colors.text};
     background: inherit;
+    text-transform: uppercase;
     &:focus {
         outline-color: ${({ theme }) => theme.colors.text};
         background: whitesmoke;

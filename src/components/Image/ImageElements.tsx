@@ -27,4 +27,38 @@ export const GuestImageContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 8rem 1rem;
+`
+
+export const FileUpload = styled.label`
+    display: flex;
+    align-items: center;
+
+    min-width: 300px;
+    height: 3rem;
+    margin: 0.5rem 0;
+    padding: 0.3rem 0.3rem;
+    border: 1px solid ${({ theme }) => theme.colors.text};
+    background: inherit;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+`
+
+export const FileUploadButton = styled.div`
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px gray;
+
+    &:hover {
+        box-shadow: 1px 1px 10px gray;
+    }
+`
+export const UploadForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 `

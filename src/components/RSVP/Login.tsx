@@ -1,6 +1,9 @@
-import useSessionStorage from '@hooks/useSessionStorage'
-import { AUTH_USER_NAME } from '@libs/data'
-import { FC, useCallback, useEffect, useState } from 'react'
+import FormButton from '@components/Button'
+import Loading from '@components/Loading'
+import Section from '@components/Section'
+import { useSignIn } from '@hooks/useAuth'
+import * as gtag from '@libs/gtag'
+import { FC, useState } from 'react'
 import {
     Form,
     FormContent,
@@ -10,11 +13,6 @@ import {
     FormWrap,
     NotFound,
 } from './RSVPElements'
-import FormButton from '@components/Button'
-import Section from '@components/Section'
-import Loading from '@components/Loading'
-import * as gtag from '@libs/gtag'
-import useAuth from '@hooks/useAuth'
 
 type LoginProps = {}
 
@@ -22,7 +20,7 @@ const Login: FC<LoginProps> = (props) => {
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [name, setName] = useState('')
-    const { user, signIn } = useAuth()
+    const signIn = useSignIn()
 
     const handleSubmit = async () => {
         if (!name) return
@@ -32,49 +30,55 @@ const Login: FC<LoginProps> = (props) => {
             label: 'login',
             value: name.toLocaleUpperCase(),
         })
-        await signIn(name)
+        setLoading(true)
+        try {
+            await signIn(name)
+        } catch (e) {
+            setError(true)
+        }
+        setLoading(false)
     }
 
-    return (
-        (!loading && (
-            <Section>
-                <FormWrap>
-                    <FormTitle>RSVP</FormTitle>
-                    {error && (
-                        <NotFound>
-                            {"Hm... We can't find your name!"}
-                            <br />
-                            Make sure you type your name as it appears on your
-                            invitation.
-                            <br />
-                            <br />
-                            Need support?
-                            <br />
-                            Contact us as bigday@duckha2022.com
-                        </NotFound>
-                    )}
+    if (loading) return <Loading />
 
-                    <FormContent>
-                        <Form onSubmit={handleSubmit}>
-                            <FormLabel>
-                                Please enter your first and last name
-                            </FormLabel>
-                            <FormInput
-                                id="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <FormButton
-                                onClick={handleSubmit}
-                                style={{ fontFamily: 'URWGothic' }}
-                            >
-                                Continue
-                            </FormButton>
-                        </Form>
-                    </FormContent>
-                </FormWrap>
-            </Section>
-        )) || <Loading />
+    return (
+        <Section>
+            <FormWrap>
+                <FormTitle>RSVP</FormTitle>
+                {error && (
+                    <NotFound>
+                        {"Hm... We can't find your name!"}
+                        <br />
+                        Make sure you type your name as it appears on your
+                        invitation.
+                        <br />
+                        <br />
+                        Need support?
+                        <br />
+                        Contact us as bigday@duckha2022.com
+                    </NotFound>
+                )}
+
+                <FormContent>
+                    <Form onSubmit={handleSubmit}>
+                        <FormLabel>
+                            Please enter your first and last name
+                        </FormLabel>
+                        <FormInput
+                            id="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <FormButton
+                            onClick={handleSubmit}
+                            style={{ fontFamily: 'URWGothic' }}
+                        >
+                            Continue
+                        </FormButton>
+                    </Form>
+                </FormContent>
+            </FormWrap>
+        </Section>
     )
 }
 

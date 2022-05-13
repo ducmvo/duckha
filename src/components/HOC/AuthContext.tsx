@@ -1,15 +1,19 @@
 import useSessionStorage from '@hooks/useSessionStorage'
 import { AUTH_USER_NAME } from '@libs/data'
-import { User } from '@prisma/client'
+import { User as PUser } from '@prisma/client'
 import React, { useCallback } from 'react'
 import { createContext, FC, useEffect, useState } from 'react'
+
+export type User = PUser & {
+    companions: User[]
+}
 
 interface IAuth {
     user?: User
     signIn: (name: string) => Promise<void>
 }
 
-const initialValues = {} as IAuth
+const initialValues: IAuth = {} as IAuth
 
 type AuthContextProps = {
     children: React.ReactNode

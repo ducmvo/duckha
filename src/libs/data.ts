@@ -48,7 +48,7 @@ export const rsvp = [
     'ARE YOU ABLE TO ATTEND?',
     'SPECIAL REQUEST?',
     'Will attend',
-    'Declines With regret',
+    'Declines with regret',
 ]
 
 export const gallery = ['Have photos with us? please share!! ❤']

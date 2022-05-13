@@ -10,6 +10,7 @@ import { uploadImage } from '@libs/fetcher'
 import * as gtag from '@libs/gtag'
 import { User } from '@prisma/client'
 import React, { FC, useState } from 'react'
+import { FileUpload, FileUploadButton, UploadForm } from './ImageElements'
 
 type UploadProps = {
     user: User
@@ -28,6 +29,7 @@ const Upload: FC<UploadProps> = (props) => {
     const handleSelectImage = (e: any) => {
         e.preventDefault()
         if (e.target.files[0]) {
+            console.log(e.target.files[0])
             setImage(e.target.files[0])
             setImageName(e.target.value)
             setError(false)
@@ -58,22 +60,23 @@ const Upload: FC<UploadProps> = (props) => {
 
     return (
         <FormWrap>
-            <Form style={{ height: '300px' }}>
-                {message && error && <Message error>{message}</Message>}
-                {message && !error && (
-                    <Message error={false}>{message}</Message>
-                )}
+            <UploadForm>
+                {message && <Message error={error}>{message}</Message>}
                 {loading ? (
                     <Loading />
                 ) : (
-                    <FormInput
-                        type="file"
-                        accept="image/*"
-                        id="myFile"
-                        name="filename"
-                        onChange={handleSelectImage}
-                        value={imageName}
-                    />
+                    <FileUpload>
+                        <FileUploadButton>Choose File</FileUploadButton>
+                        <FormInput
+                            type="file"
+                            accept="image/*"
+                            id="myFile"
+                            name="filename"
+                            onChange={handleSelectImage}
+                            value={imageName}
+                        />
+                        {image?.name || 'No file chosen'}
+                    </FileUpload>
                 )}
 
                 <Button
@@ -82,7 +85,7 @@ const Upload: FC<UploadProps> = (props) => {
                 >
                     Upload
                 </Button>
-            </Form>
+            </UploadForm>
         </FormWrap>
     )
 }

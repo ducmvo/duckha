@@ -1,10 +1,10 @@
 import FormButton from '@components/Button'
+import type { User } from '@components/HOC/AuthContext'
 import GuestImage from '@components/Image'
 import Section from '@components/Section'
 import { useUser } from '@hooks/useAuth'
 import { rsvp, sectionRSVP } from '@libs/data'
 import * as gtag from '@libs/gtag'
-import { User as PUser } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
 import { animateScroll as scroll } from 'react-scroll'
 import Attendant from './Attendant'
@@ -25,12 +25,7 @@ type IAttendance = {
     [id: number]: User
 }
 
-type User = PUser & {
-    companions: User[]
-}
-
 const RSVP = () => {
-    // const [user, setUser] = useState<User>()
     const user = useUser()
 
     const [error, setError] = useState(false)
@@ -40,10 +35,10 @@ const RSVP = () => {
     useEffect(() => {
         if (!user) return
         const hashMap: IAttendance = {}
-        // hashMap[user.id] = user
-        // user.companions.forEach((companion: User) => {
-        //     hashMap[companion.id] = companion
-        // })
+        hashMap[user.id] = user
+        user.companions.forEach((companion: User) => {
+            hashMap[companion.id] = companion
+        })
         setAttendance(hashMap)
     }, [user])
 
@@ -91,7 +86,8 @@ const RSVP = () => {
 
     const handleUserInput = (id: number, arg: boolean | string, e: any) => {
         let obj = {}
-        if (e.target.id === 'name') obj = { name: arg }
+        if (e.target.id === 'name')
+            obj = { name: (arg as string)?.toUpperCase() }
         if (e.target.id === 'attendance') obj = { attend: arg }
         if (e.target.id === 'request') obj = { request: arg }
         setAttendance({
@@ -110,8 +106,8 @@ const RSVP = () => {
             <Section noPadding id={sectionRSVP[0]}>
                 <FormWrap>
                     <RSVPTitle>{sectionRSVP[0]}</RSVPTitle>
-                    {message && <Message error={error}>{message}</Message>}
                     <GuestAttendanceForm>
+                        {message && <Message error={error}>{message}</Message>}
                         <AttendLabel>{rsvp[0]}</AttendLabel>
                         <Attendant
                             attendance={attendance}
@@ -119,14 +115,14 @@ const RSVP = () => {
                             user={user}
                         />
 
-                        {/* {user.companions.map((guest) => (
+                        {user.companions.map((guest) => (
                             <Attendant
                                 key={guest.id}
                                 attendance={attendance}
                                 handleUserInput={handleUserInput}
                                 user={guest}
                             />
-                        ))} */}
+                        ))}
 
                         <AttendLabel>{rsvp[1]}</AttendLabel>
                         <GuestInputTextArea
@@ -155,7 +151,7 @@ const RSVP = () => {
                 <Attire />
             </Section>
 
-            <Section skew id={sectionRSVP[3]}>
+            <Section skew noPadding id={sectionRSVP[3]}>
                 <GuestImage user={user} />
             </Section>
         </Container>
