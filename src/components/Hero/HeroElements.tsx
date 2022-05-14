@@ -8,7 +8,7 @@ type HeroProps = {
 }
 
 export const Section = styled.div<HeroProps>`
-    font-family: 'URWGothic';
+    font-family: 'Zen Kaku Gothic New';
     padding: 2rem;
     height: 100vh;
     display: flex;

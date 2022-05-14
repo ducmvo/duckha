@@ -77,7 +77,7 @@ const Upload: FC<UploadProps> = (props) => {
 
                 <Button
                     onClick={handleUpload}
-                    style={{ fontFamily: 'URWGothic' }}
+                    style={{ fontFamily: 'Zen Kaku Gothic New' }}
                 >
                     Upload
                 </Button>

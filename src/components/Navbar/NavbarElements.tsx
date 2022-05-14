@@ -94,7 +94,7 @@ export const NavLinks = styled(LinkS)`
     align-items: center;
     /* padding: 1.4rem 1rem; */
     text-transform: uppercase;
-    font-family: 'URWGothic';
+    font-family: 'Zen Kaku Gothic New';
 
     cursor: pointer;
     transition: all 0.2s ease-in;
@@ -122,7 +122,7 @@ export const StyledNavBtnLink = styled.div`
     white-space: nowrap;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
-    font-family: 'URWGothic';
+    font-family: 'Zen Kaku Gothic New';
     outline: none;
     letter-spacing: 0.1rem;
     cursor: pointer;

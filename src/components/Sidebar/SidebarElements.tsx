@@ -85,7 +85,7 @@ export const SideBtnWrap = styled.div`
 `
 
 const StyledSidebarRoute = styled.div`
-    font-family: 'URWGothic';
+    font-family: 'Zen Kaku Gothic New';
     font-size: 1.2rem;
     color: ${({ theme }) => theme.colors.text};
     text-align: center;

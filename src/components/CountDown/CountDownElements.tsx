@@ -19,7 +19,7 @@ export const CountDownElement = styled.div`
 `
 
 export const CountDownLabel = styled(CountDownElement)`
-    font-family: 'URWGothic';
+    font-family: 'Zen Kaku Gothic New';
     background-color: inherit;
     font-size: 1rem;
     letter-spacing: 0.2rem;

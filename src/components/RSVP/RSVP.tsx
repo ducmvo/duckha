@@ -136,7 +136,7 @@ const RSVP = () => {
                     </GuestAttendanceForm>
                     <FormButton
                         onClick={handleSave}
-                        style={{ fontFamily: 'URWGothic' }}
+                        style={{ fontFamily: 'Zen Kaku Gothic New' }}
                     >
                         Save
                     </FormButton>

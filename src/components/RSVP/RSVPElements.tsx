@@ -96,7 +96,7 @@ export const RSVPTitle = styled.div`
 `
 
 export const RSVPContent = styled.div`
-    font-family: 'URWGothic';
+    font-family: 'Zen Kaku Gothic New';
     letter-spacing: 0.1rem;
     font-size: min(1rem, 5vw);
     padding-bottom: 0.2rem;
@@ -171,7 +171,7 @@ export const Message = styled.div`
     margin: 1rem;
     text-align: center;
     width: 100%;
-    font-family: 'URWGothic';
+    font-family: 'Zen Kaku Gothic New';
     font-size: 0.8rem;
     text-transform: uppercase;
     background-color: ${({ theme, error }: { theme: any; error: boolean }) =>

@@ -20,17 +20,10 @@ class MyDocument extends Document {
                     />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cormorant+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap"
                         rel="stylesheet"
                     />
 
-                    <link
-                        rel="preload"
-                        href="/assets/fonts/URWGothic.ttf"
-                        as="font"
-                        type="font/ttf"
-                        crossOrigin="anonymous"
-                    />
                     <link
                         rel="preload"
                         href="/assets/fonts/HighSpirited.ttf"

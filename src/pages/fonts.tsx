@@ -6,8 +6,10 @@ const fonts = () => {
             <div style={{ fontSize: '5rem', fontFamily: 'HighSpirited' }}>
                 HighSpirited
             </div>
-            <div style={{ fontSize: '3rem', fontFamily: 'URWGothic' }}>
-                URWGothic
+            <div
+                style={{ fontSize: '3rem', fontFamily: 'Zen Kaku Gothic New' }}
+            >
+                Zen Kaku Gothic New
             </div>
             <div style={{ fontSize: '3rem', fontFamily: 'Cormorant Garamond' }}>
                 Cormorant Garamond

@@ -71,7 +71,7 @@ const Login: FC<LoginProps> = (props) => {
                         />
                         <FormButton
                             onClick={handleSubmit}
-                            style={{ fontFamily: 'URWGothic' }}
+                            style={{ fontFamily: 'Zen Kaku Gothic New' }}
                         >
                             Continue
                         </FormButton>
