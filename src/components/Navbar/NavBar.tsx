@@ -1,6 +1,10 @@
+import { useUser } from '@hooks/useAuth'
+import { nameTag } from '@libs/data'
+import { useRouter } from 'next/router'
 import React, { FC, useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { IconContext } from 'react-icons/lib'
+import { animateScroll as scroll } from 'react-scroll'
 import {
     MobileIcon,
     NameTag,
@@ -8,15 +12,10 @@ import {
     NavbarContainer,
     NavBtn,
     NavBtnLink,
-    NavItem,
     NavLinks,
     NavLogo,
     NavMenu,
 } from './NavbarElements'
-import { animateScroll as scroll } from 'react-scroll'
-import { sectionHome, nameTag } from '@libs/data'
-import { useRouter } from 'next/router'
-import { useUser } from '@hooks/useAuth'
 
 type NavbarProps = {
     toggleSideBar: () => void

@@ -1,14 +1,14 @@
-import { FC } from 'react'
 import Section from '@components/Section'
-import { info, sectionHome } from '@libs/data'
+import { homeSections } from '@libs/data'
+import { FC } from 'react'
 type InfoProps = {
-    id?: string
+    id: string
 }
 const Info: FC<InfoProps> = (props) => {
     const { id } = props
     return (
         <Section title={id} id={id}>
-            {info.map((p, i) => (
+            {homeSections[id].map((p, i) => (
                 <p key={i}>{p}</p>
             ))}
         </Section>

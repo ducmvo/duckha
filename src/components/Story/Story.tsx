@@ -1,10 +1,10 @@
 import Section from '@components/Section'
-import { story } from '@libs/data'
+import { homeSections } from '@libs/data'
 import Image from 'next/image'
 import React, { FC } from 'react'
 import { ImgWrap, SectionWrap, StoryContainer, Text } from './StoryElements'
 type StoryProps = {
-    id?: string
+    id: string
 }
 const Story: FC<StoryProps> = (props) => {
     const { id } = props
@@ -21,7 +21,7 @@ const Story: FC<StoryProps> = (props) => {
                 </ImgWrap>
                 <SectionWrap>
                     <Section title={id} noPadding>
-                        {story.map((s, i) => (
+                        {homeSections[id].map((s, i) => (
                             <Text key={i}>{s}</Text>
                         ))}
                     </Section>

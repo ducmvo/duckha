@@ -1,8 +1,9 @@
 import useSessionStorage from '@hooks/useSessionStorage'
-import { AUTH_USER_NAME } from '@libs/data'
 import { User as PUser } from '@prisma/client'
 import React, { useCallback } from 'react'
 import { createContext, FC, useEffect, useState } from 'react'
+
+const AUTH_USER_NAME = 'duckha-guest-name'
 
 export type User = PUser & {
     companions: User[]

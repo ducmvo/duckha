@@ -1,20 +1,16 @@
+import CountDown from '@components/CountDown'
+import Hero from '@components/Hero'
+import Info from '@components/Info'
+import Story from '@components/Story'
+import { names, sectionHome } from '@libs/data'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import Hero from '@components/Hero'
-import Story from '@components/Story'
-import Navbar from '@components/Navbar'
-import { useToggle } from '@hooks'
-import Footer from '@components/Footer'
-import Info from '@components/Info'
-import CountDown from '@components/CountDown'
-import { sectionHome } from '@libs/data'
-
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Duc & Kha | Home</title>
+                <title>{names} | Home</title>
             </Head>
             <Hero />
             <CountDown />
@@ -24,4 +20,4 @@ const Home: NextPage = () => {
     )
 }
 
-export default Home
+export default HomePage

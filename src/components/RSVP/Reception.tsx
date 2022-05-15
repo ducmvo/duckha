@@ -1,23 +1,21 @@
-import { BigDay, days, hall, months, sectionRSVP, venue } from '@libs/data'
+import Section from '@components/Section'
+import { rsvpSections } from '@libs/data'
+import { FC } from 'react'
 import { RSVPContent, RSVPInfo, RSVPTitle } from './RSVPElements'
-
-const Reception = () => {
-    const date = `${days[BigDay.getDay()]} ${
-        months[BigDay.getMonth()]
-    } ${BigDay.getDate()}, ${BigDay.getFullYear()} `
-    const hour = `${
-        BigDay.getHours() > 12 ? BigDay.getHours() - 12 : BigDay.getHours()
-    }:${BigDay.getMinutes()}${BigDay.getMinutes() < 10 && 0} ${
-        BigDay.getHours() > 12 ? 'PM' : 'AM'
-    }`
+type ReceptionProps = {
+    id: string
+}
+const Reception: FC<ReceptionProps> = (props) => {
+    const { id } = props
     return (
-        <RSVPInfo>
-            <RSVPTitle>{sectionRSVP[1]}</RSVPTitle>
-            <RSVPContent>{date}</RSVPContent>
-            <RSVPContent>{hour}</RSVPContent>
-            <RSVPContent>{venue}</RSVPContent>
-            <RSVPContent>{hall}</RSVPContent>
-        </RSVPInfo>
+        <Section skew id={id}>
+            <RSVPInfo>
+                <RSVPTitle>{id}</RSVPTitle>
+                {rsvpSections[id].map((c, i) => (
+                    <RSVPContent key={i}>{c}</RSVPContent>
+                ))}
+            </RSVPInfo>
+        </Section>
     )
 }
 

@@ -1,31 +1,35 @@
 import { RSVPContent, RSVPTitle } from '@components/RSVP/RSVPElements'
-import { gallery, sectionRSVP } from '@libs/data'
-import { Image, User } from '@prisma/client'
+import Section from '@components/Section'
+import { rsvpSections } from '@libs/data'
+import { Image } from '@prisma/client'
 import React, { FC, useState } from 'react'
 import Gallery from './Gallery'
 import { GuestImageContainer } from './ImageElements'
 import Upload from './Upload'
 
 type GuestImageProps = {
-    user: User
+    id: string
 }
 const GuestImage: FC<GuestImageProps> = (props) => {
+    const { id } = props
     const [imageUrl, setImageUrl] = useState<string>()
     const [images, setImages] = useState<Image[]>([])
 
     return (
-        <GuestImageContainer>
-            <RSVPTitle>{sectionRSVP[3]}</RSVPTitle>
-            <RSVPContent style={{ fontSize: '0.8rem' }}>
-                {gallery[0]}
-            </RSVPContent>
-            <Gallery
-                imageUrl={imageUrl}
-                images={images}
-                setImages={setImages}
-            />
-            <Upload setImageUrl={setImageUrl} />
-        </GuestImageContainer>
+        <Section skew noPadding id={id}>
+            <GuestImageContainer>
+                <RSVPTitle>{id}</RSVPTitle>
+                {rsvpSections[id].map((c, i) => (
+                    <RSVPContent key={i}>{c}</RSVPContent>
+                ))}
+                <Gallery
+                    imageUrl={imageUrl}
+                    images={images}
+                    setImages={setImages}
+                />
+                <Upload setImageUrl={setImageUrl} />
+            </GuestImageContainer>
+        </Section>
     )
 }
 

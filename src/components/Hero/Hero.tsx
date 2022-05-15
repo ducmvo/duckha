@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { BigDay, months, days, names, location } from '@libs/data'
-import { BigDate, Names, Section, Location } from './HeroElements'
 import RSVPButton from '@components/Button'
+import { BigDay, location, names } from '@libs/data'
+import { getTextFromDate } from '@libs/utils'
+import React, { useEffect, useState } from 'react'
+import { BigDate, Location, Names, Section } from './HeroElements'
 
 const Hero = () => {
     const [scrollNav, setScrollNav] = useState(false)
@@ -12,10 +13,7 @@ const Hero = () => {
         window.addEventListener('scroll', changeNav)
     }, [])
 
-    const day = days[BigDay.getDay()]
-    const date = BigDay.getDate()
-    const month = months[BigDay.getMonth()]
-    const year = BigDay.getFullYear()
+    const [day, date, month, year] = getTextFromDate(BigDay)
 
     return (
         <Section scroll={scrollNav}>

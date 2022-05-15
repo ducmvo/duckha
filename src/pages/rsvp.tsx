@@ -1,21 +1,19 @@
-import Render from '@components/HOC/Render'
-import PleaseReply from '@components/RSVP'
+import RSVP from '@components/RSVP'
 import ScrollToTop from '@components/Scroll/ScrollToTop'
+import { names } from '@libs/data'
 import Head from 'next/head'
 import React from 'react'
 
-const RSVP = () => {
+const RSVPPage = () => {
     return (
         <>
             <Head>
-                <title>Duc & Kha | RSVP</title>
+                <title>{names} | RSVP</title>
             </Head>
             <ScrollToTop />
-            <Render client>
-                <PleaseReply />
-            </Render>
+            <RSVP />
         </>
     )
 }
 
-export default RSVP
+export default RSVPPage
