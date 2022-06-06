@@ -50,7 +50,7 @@ export const rsvpSections: IPageSections = {
         'Declines with regret',
     ],
     Reception: [date, hour, venue, hall],
-    Attire: ['Semi-Formal', '(AKA Dressy Casual, or Cocktail)'],
+    Attire: ['Formal'],
     Gallery: ['Have photos with us? please share!! ❤'],
 }
 export const attireColors = [
