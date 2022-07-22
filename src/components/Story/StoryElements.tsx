@@ -13,7 +13,7 @@ export const StoryContainer = styled.div`
 
 export const ImgWrap = styled.div`
     text-align: center;
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         display: none;
     }
 
@@ -26,7 +26,7 @@ export const ImgWrap = styled.div`
 
 export const ImgWrapMobile = styled.div`
     text-align: center;
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
         display: none;
     }
     /* max-height: 800px; */
