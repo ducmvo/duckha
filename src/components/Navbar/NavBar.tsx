@@ -1,4 +1,4 @@
-import { useUser } from '@hooks/useAuth'
+import { useSignOut, useUser } from '@hooks/useAuth'
 import { nameTag } from '@libs/data'
 import { useRouter } from 'next/router'
 import React, { FC, useEffect, useState } from 'react'
@@ -28,6 +28,7 @@ const Navbar: FC<NavbarProps> = (props) => {
     const [showMenuItems, setShowMenuItems] = useState(true)
     const router = useRouter()
     const user = useUser()
+    const signOut = useSignOut()
 
     let display = false
     if (router.pathname !== '/') display = true
@@ -77,7 +78,13 @@ const Navbar: FC<NavbarProps> = (props) => {
                 </NavMenu>
 
                 <NavBtn>
-                    <NavBtnLink href="/rsvp">RSVP</NavBtnLink>
+                    {!user ? (
+                        <NavBtnLink href="/rsvp">RSVP</NavBtnLink>
+                    ) : (
+                        <div onClick={signOut}>
+                            <NavBtnLink href="/">LOGOUT</NavBtnLink>
+                        </div>
+                    )}
                 </NavBtn>
             </NavbarContainer>
         </Nav>

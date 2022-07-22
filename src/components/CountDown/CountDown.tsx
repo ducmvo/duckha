@@ -38,7 +38,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
 
 const CountDown = () => {
     return (
-        <Section noPadding skew>
+        <Section skew>
             <Render client>
                 <Countdown
                     date={BigDay}

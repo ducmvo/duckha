@@ -12,6 +12,7 @@ export type User = PUser & {
 interface IAuth {
     user?: User
     signIn: (name: string) => Promise<void>
+    signOut: () => void
 }
 
 const initialValues: IAuth = {} as IAuth
@@ -30,10 +31,16 @@ export const AuthProvider: FC<AuthContextProps> = (props) => {
         AUTH_USER_NAME,
         ''
     )
+
+    const signOut = () => {
+        setUsername('')
+        setUser(undefined)
+    }
+
     const signIn = useCallback(
-        async (name: string) => {
+        async (email: string) => {
             let url = '/api/user'
-            const data = { name: name }
+            const data = { email: email }
             let res = await fetch(url, {
                 method: 'POST',
                 body: JSON.stringify(data),
@@ -46,7 +53,7 @@ export const AuthProvider: FC<AuthContextProps> = (props) => {
                 setUser(undefined)
                 throw err
             }
-            setUsername(name)
+            setUsername(email)
         },
         [setUsername]
     )
@@ -55,7 +62,7 @@ export const AuthProvider: FC<AuthContextProps> = (props) => {
         if (!user && username) signIn(username)
     })
 
-    const contextValue = { user, signIn }
+    const contextValue = { user, signIn, signOut }
 
     return (
         <AuthContext.Provider value={contextValue}>

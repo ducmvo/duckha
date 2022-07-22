@@ -8,3 +8,5 @@ export default useAuth
 export const useUser = () => useContext(AuthContext).user
 
 export const useSignIn = () => useContext(AuthContext).signIn
+
+export const useSignOut = () => useContext(AuthContext).signOut

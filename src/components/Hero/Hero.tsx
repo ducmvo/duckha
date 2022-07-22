@@ -21,7 +21,6 @@ const Hero = () => {
             <BigDate>
                 {month} {date}, {year}
             </BigDate>
-
             <Location>{location}</Location>
             <RSVPButton href="/rsvp">RSVP</RSVPButton>
         </Section>

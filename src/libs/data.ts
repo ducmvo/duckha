@@ -16,38 +16,25 @@ export const hall = 'Dragon Hall'
 
 // HOMEPAGE CONTENT
 export const homeSections: IPageSections = {
-    Info: [
-        `Those lines that I before have writ do lie, 
-        Ev'n those that said I could not love you dearer. 
-        Yet then my judgment knew no reason why 
-        My most full flame should afterwards burn clearer.`,
-        `Love comforteth like sunshine after rain, 
-        But lust's effect is tempest after sun;
-        Love's gentle spring doth always fresh remain, 
-        Lust's winter comes ere summer half be done. 
-        Love surfeits not; lust like a glutton dies; 
-        Love is all truth; lust full of forged lies.`,
-    ],
+    Info: [`Vui lòng phản hồi trước 01.08.2022`],
     Story: [
-        `No sooner met but they looked, 
-        no sooner looked but they loved, 
-        no sooner loved but they sighed, 
-        no sooner sighed but they asked one another the reason, 
-        no sooner knew the reason but they sought the remedy; 
-        and in these degrees have they made a pair of stairs to marriage.`,
-        `In the spring time, the only pretty ring time, 
-        When birds do sing, hey ding a ding, ding: 
-        Sweet lovers love the spring.`,
+        '“Anh muốn ghé núi Crystal để trượt tuyết”',
+        '12.2013',
+        `Đó là lí do Đức đưa ra khi Kha hỏi vì sao anh phải xa xôi lặn lội từ Houston, Texas lên Seattle, Washington ngay giữa mùa đông. Nhưng thật ra, Đức đang có những dự định khác`,
+        `Lời hẹn trượt tuyết mãi không thực hiện được cho tới vài năm gần đây. Trong khoảng thời gian đó, Đức và Kha đã cũng trải nghiệm cùng nhau rất nhiều cái mới. Lần đầu đi leo núi với 1 chai nước suối, đôi giày cao gót và máy chụp kĩ thuật số. Lần đầu cắm trại với độc một chiếc mền dưới rất nhiều tuyết và đá lạnh buổi sớm. Lần đầu trượt tuyết đi lạc giữa dày đặc sương đêm. Và rất nhiều các chuyến đi xuyên nước Mĩ. `,
+        `Kha vụng về nhưng nhiệt huyết, bộp chộp nhưng nhanh nhẩu thông tin. `,
+        `Đức trầm tính như ông cụ, nhưng chắc chắn, kĩ tính và vững chải. `,
+        `Và Mây nữa. Mây là con mèo nhỏ nhận nuôi giữa tâm dịch. Vì bộ lông với những vệt xám như mây Seattle, nơi mọi thứ bắt đầu và vẫn đang tiếp diễn.`,
     ],
 }
 
 // RSVP PAGE CONTENT
 export const rsvpSections: IPageSections = {
     Rsvp: [
-        'ARE YOU ABLE TO ATTEND?',
-        'SPECIAL REQUEST?',
-        'Will attend',
-        'Declines with regret',
+        'PHẢN HỒI THAM DỰ?',
+        'YÊU CẦU ĐẶC BIỆT?',
+        'Sẽ tham dự',
+        'Từ chối trong tiếc nuối',
     ],
     Reception: [date, hour, venue, hall],
     Attire: ['Formal'],

@@ -78,21 +78,21 @@ const Footer = () => {
 						</WebsiteRights> */}
                         <SocialIcons>
                             <SocialIconLink
-                                href="//www.facebook.com/duckha2022"
+                                href="//www.facebook.com/ducandkha"
                                 target="_blank"
                                 arial-label="Facebook"
                             >
                                 <FaFacebook />
                             </SocialIconLink>
                             <SocialIconLink
-                                href="//www.instagram.com/duckha2022/"
+                                href="//www.instagram.com/ducandkha/"
                                 target="_blank"
                                 arial-label="Instagram"
                             >
                                 <FaInstagram />
                             </SocialIconLink>
                             <SocialIconLink
-                                href="//www.youtube.com/channel/duckha2022"
+                                href="//www.youtube.com/channel/ducandkha"
                                 target="_blank"
                                 arial-label="Youtube"
                             >

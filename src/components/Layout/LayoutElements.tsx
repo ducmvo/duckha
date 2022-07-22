@@ -14,7 +14,7 @@ export const LayoutContent = styled.div`
     justify-content: space-between;
     flex-direction: column;
 
-    max-width: 1200px;
+    max-width: 1500px;
     width: 100%;
     box-shadow: 10px 10px 50px gray;
     min-height: 100vh;

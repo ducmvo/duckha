@@ -5,11 +5,11 @@ import { FC } from 'react'
 
 export const FooterContainer = styled.footer`
     background-color: ${({ theme }) => theme.colors.bg};
-    padding-top: 5rem;
+    /* padding-top: 5rem; */
 `
 
 export const FooterWrap = styled.div`
-    padding: 48px 24px;
+    padding: 0rem 1rem 5rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +83,7 @@ export const SocialMediaWrap = styled.div`
     justify-content: space-between;
     align-items: center;
     max-width: 1100px;
-    margin: 40px auto 0 auto;
+    /* margin: 40px auto 0 auto; */
 
     flex-direction: column;
     /* @media screen and (max-width: 820px) {

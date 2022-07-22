@@ -7,7 +7,10 @@ const nextConfig = {
         styledComponents: true,
     },
     images: {
-        domains: [S3Domain],
+        domains: [
+            S3Domain,
+            'ducandkha-wedding-images-bucket.s3.us-west-2.amazonaws.com',
+        ],
     },
 }
 

@@ -5,13 +5,13 @@ import { sectionRSVP } from '@libs/data'
 import React from 'react'
 import Attire from './Attire'
 import Form from './Form'
-import Login from './Login'
+import Response from './Response'
 import Reception from './Reception'
 import { Container } from './RSVPElements'
 
 const RSVP = () => {
     const user = useUser()
-    if (!user) return <Login />
+    if (!user) return <Response />
     return (
         <Render client>
             <Container>

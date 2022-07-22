@@ -12,17 +12,35 @@ export const StoryContainer = styled.div`
 `
 
 export const ImgWrap = styled.div`
-    max-height: 299px;
-    aspect-ratio: 1/1;
-    border: 12px solid ${({ theme }) => theme.colors.white};
-    box-shadow: 5px 5px 10px gray;
-    background: inherit;
-    margin: 0 5rem;
+    text-align: center;
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+    /* max-height: 800px; */
+    /* border: 12px solid ${({ theme }) => theme.colors.white}; */
+    /* box-shadow: 5px 5px 10px gray; */
+    /* background: inherit; */
+    /* margin: 0 5rem 0 3rem; */
+`
+
+export const ImgWrapMobile = styled.div`
+    text-align: center;
+    @media (min-width: 768px) {
+        display: none;
+    }
+    /* max-height: 800px; */
+    /* border: 12px solid ${({ theme }) => theme.colors.white}; */
+    /* box-shadow: 5px 5px 10px gray; */
+    /* background: inherit; */
+    /* margin: 0 5rem 0 3rem; */
 `
 
 export const SectionWrap = styled.div`
     flex: 1;
-    padding: 0 6rem 0 0;
+    padding: 0 0 0 8rem;
+    min-width: 50%;
+
     background-color: inherit;
     @media (max-width: 768px) {
         padding: 0 4rem;

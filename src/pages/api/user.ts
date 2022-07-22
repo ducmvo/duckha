@@ -8,10 +8,10 @@ const handler = async (
 ) => {
     let user
     if (req.method === 'POST') {
-        const { name } = JSON.parse(req.body)
-        if (name) {
+        const { email } = JSON.parse(req.body)
+        if (email) {
             const users = await prisma.user.findMany({
-                where: { name: { equals: name?.toUpperCase() } },
+                where: { email: { equals: email?.toUpperCase() } },
                 include: {
                     companions: true,
                 },

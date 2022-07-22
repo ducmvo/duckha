@@ -26,6 +26,7 @@ model User {
   vip        Boolean?
   request    String?
   guestId    Int?
+  group      Int?
   guest      User?    @relation("GuestCompanions", fields: [guestId], references: [id])
   companions User[]   @relation("GuestCompanions")
   images     Image[]

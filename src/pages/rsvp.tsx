@@ -12,17 +12,7 @@ const RSVPPage = () => {
                 <title>{names} | RSVP</title>
             </Head>
             <ScrollToTop />
-            <Section>
-                <div style={{ textAlign: 'center' }}>
-                    Thank you for visiting!
-                    <br />
-                    <br />
-                    We are building our website,
-                    <br />
-                    Please come back for more info...
-                </div>
-            </Section>
-            {/* <RSVP /> */}
+            <RSVP />
         </>
     )
 }

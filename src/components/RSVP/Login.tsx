@@ -14,25 +14,28 @@ import {
     NotFound,
 } from './RSVPElements'
 
-type LoginProps = {}
+type LoginProps = {
+    setResponsed: () => void
+}
 
 const Login: FC<LoginProps> = (props) => {
+    const { setResponsed } = props
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     const signIn = useSignIn()
 
     const handleSubmit = async () => {
-        if (!name) return
+        if (!email) return
         gtag.event({
             action: 'login_rsvp',
             category: 'RSVP',
             label: 'login',
-            value: name.toLocaleUpperCase(),
+            value: email.toLocaleUpperCase(),
         })
         setLoading(true)
         try {
-            await signIn(name)
+            await signIn(email)
         } catch (e) {
             setError(true)
         }
@@ -47,27 +50,21 @@ const Login: FC<LoginProps> = (props) => {
                 <FormTitle>RSVP</FormTitle>
                 {error && (
                     <NotFound>
-                        {"Hm... We can't find your name!"}
-                        <br />
-                        Make sure you type your name as it appears on your
-                        invitation.
-                        <br />
+                        {"Hm... We can't find your email!"}
                         <br />
                         Need support?
                         <br />
-                        Contact us as bigday@duckha2022.com
+                        Contact us as ducvor@gmail.com
                     </NotFound>
                 )}
 
                 <FormContent>
                     <Form onSubmit={handleSubmit}>
-                        <FormLabel>
-                            Please enter your first and last name
-                        </FormLabel>
+                        <FormLabel>Please enter your email</FormLabel>
                         <FormInput
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <FormButton
                             onClick={handleSubmit}
@@ -78,6 +75,13 @@ const Login: FC<LoginProps> = (props) => {
                     </Form>
                 </FormContent>
             </FormWrap>
+            <a
+                href="#"
+                style={{ color: 'black', textAlign: 'center' }}
+                onClick={setResponsed}
+            >
+                Not responsed yet? Click here
+            </a>
         </Section>
     )
 }
